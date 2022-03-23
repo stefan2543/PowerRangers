@@ -11,3 +11,4 @@ class MainActivity : AppCompatActivity() {
 }
 
 //Comment
+// Comment by Erickson Tran
