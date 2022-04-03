@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.powerrangers.databinding.FragmentLoginBinding
 
 import com.example.powerrangers.R
@@ -109,6 +110,8 @@ class LoginFragment : Fragment() {
                 usernameEditText.text.toString(),
                 passwordEditText.text.toString()
             )
+            // Auto entry
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_todayFragment)
         }
     }
 

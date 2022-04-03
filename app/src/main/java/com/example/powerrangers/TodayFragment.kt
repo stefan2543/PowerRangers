@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.powerrangers.placeholder.PlaceholderContent
 
 /**
@@ -16,6 +19,7 @@ import com.example.powerrangers.placeholder.PlaceholderContent
 class TodayFragment : Fragment() {
 
     private var columnCount = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,12 @@ class TodayFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_today_list, container, false)
 
+        // Buttons
+        val nextDayButton = view.findViewById<Button>(R.id.nextDayButton)
+        val calendarButton = view.findViewById<Button>(R.id.calendarButton)
+        val searchButton = view.findViewById<Button>(R.id.searchButton)
+
+
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
@@ -41,6 +51,10 @@ class TodayFragment : Fragment() {
                 adapter = MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
             }
         }
+
+        nextDayButton.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_todayFragment_self)}
+        calendarButton.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)}
+        searchButton.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_searchFragment)}
         return view
     }
 

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 import com.example.powerrangers.placeholder.PlaceholderContent
 
 /**
@@ -30,6 +32,9 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search_list, container, false)
+        //Buttons
+        val todayButton = view.findViewById<Button>(R.id.todayButton)
+        val detailsButton = view.findViewById<Button>(R.id.detailsButton)
 
         // Set the adapter
         if (view is RecyclerView) {
@@ -41,8 +46,11 @@ class SearchFragment : Fragment() {
                 adapter = MyItemRecyclerViewAdapter2(PlaceholderContent.ITEMS)
             }
         }
+        todayButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_searchFragment_to_todayFragment)}
+        detailsButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_searchFragment_to_detailsFragment)}
         return view
     }
+
 
     companion object {
 
