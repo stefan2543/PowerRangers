@@ -41,7 +41,7 @@ class TodayFragment : Fragment() {
         val searchButton = view.findViewById<Button>(R.id.searchButton)
 
 
-        // Set the adapter
+        /*// Set the adapter
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = when {
@@ -50,7 +50,7 @@ class TodayFragment : Fragment() {
                 }
                 adapter = MyItemRecyclerViewAdapter()
             }
-        }
+        }*/
 
 
         nextDayButton.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_todayFragment_self)}
