@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_search.xml" value="0.2" />
+        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_search_list.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.14221014492753623" />
+        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.2" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/calendar_fragment.xml" value="0.25" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/details_fragment.xml" value="0.25" />
