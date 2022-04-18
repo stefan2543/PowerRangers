@@ -23,7 +23,7 @@ data class Media(
     val media: String,
 
     @ColumnInfo(name = "date")
-    var date: Date,
+    var date: String,
 
     @ColumnInfo(name = "network")
     var network: String

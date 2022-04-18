@@ -8,6 +8,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.BufferedReader
+import java.io.FileReader
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
@@ -72,6 +76,17 @@ abstract class MediaRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             mediaDao.deleteAll()
 
+            //val formatter = SimpleDateFormat("MMM-dd-yyyy", Locale.ENGLISH) formatter.parse
+
+            BufferedReader(FileReader("tv.csv")).use { br ->
+                var line: String
+                while (br.readLine().also { line = it } != null) {
+                    val values: Array<String> =
+                        line.split(",").toTypedArray()
+                    var media = Media(values[0],values[1],values[2])
+                    mediaDao.insert(media)
+                }
+            }
 
         }
     }
