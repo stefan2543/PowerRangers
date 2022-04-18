@@ -78,15 +78,6 @@ abstract class MediaRoomDatabase : RoomDatabase() {
 
             //val formatter = SimpleDateFormat("MMM-dd-yyyy", Locale.ENGLISH) formatter.parse
 
-            BufferedReader(FileReader("tv.csv")).use { br ->
-                var line: String
-                while (br.readLine().also { line = it } != null) {
-                    val values: Array<String> =
-                        line.split(",").toTypedArray()
-                    var media = Media(values[0],values[1],values[2])
-                    mediaDao.insert(media)
-                }
-            }
 
         }
     }
