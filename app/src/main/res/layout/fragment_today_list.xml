@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.recyclerview.widget.RecyclerView xmlns:tools="http://schemas.android.com/tools"
+    <!--<androidx.recyclerview.widget.RecyclerView xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list"
         android:name="com.example.powerrangers.TodayFragment"
         android:layout_width="match_parent"
@@ -22,13 +22,13 @@
 
 
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/calendarButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list"
+        app:layout_constraintTop_toBottomOf="@+id/item_Name"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Calendar View">
 
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/nextDayButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list"
+        app:layout_constraintTop_toBottomOf="@+id/item_Name"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Next Day">
 
@@ -48,10 +48,44 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list"
+        app:layout_constraintTop_toBottomOf="@+id/item_Name"
         app:layout_constraintEnd_toStartOf="@id/nextDayButton"
         app:layout_constraintStart_toEndOf="@id/calendarButton"
         android:text="Search">
 
     </Button>
+
+    <TextView
+        android:id="@+id/item_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toTopOf="@id/calendarButton"
+        app:layout_constraintEnd_toStartOf="@+id/release_Time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_Image"
+        android:text="Attack On Titan"/>
+
+    <TextView
+        android:id="@+id/release_Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
+        app:layout_constraintBottom_toTopOf="@id/nextDayButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_Name"
+        app:layout_constraintTop_toBottomOf="@id/item_Image"
+        android:text="Sunday 12:00 AM CT"/>
+
+    <ImageView
+        android:id="@+id/item_Image"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/_025e4b811cf2c61281856be28ffc2c91649000159_main_1649001573650"
+        app:layout_constraintBottom_toTopOf="@id/item_Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
