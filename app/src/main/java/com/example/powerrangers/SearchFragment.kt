@@ -11,6 +11,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
 import com.example.powerrangers.placeholder.PlaceholderContent
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
+import org.jsoup.select.Elements
 
 /**
  * A fragment representing a list of Items.
@@ -36,7 +40,14 @@ class SearchFragment : Fragment() {
         val todayButton = view.findViewById<Button>(R.id.todayButton)
         val detailsButton = view.findViewById<Button>(R.id.detailsButton)
 
-        // Set the adapter
+        //val url = "https://www.the-numbers.com/movies/release-schedule"
+        //val document = Jsoup
+            //.connect(url)
+           // .get()
+        //val targetElement = document
+
+
+       /* // Set the adapter
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = when {
@@ -45,7 +56,7 @@ class SearchFragment : Fragment() {
                 }
                 adapter = MyItemRecyclerViewAdapter2(PlaceholderContent.ITEMS)
             }
-        }
+        }*/
         todayButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_searchFragment_to_todayFragment)}
         detailsButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_searchFragment_to_detailsFragment)}
         return view
@@ -66,4 +77,5 @@ class SearchFragment : Fragment() {
                 }
             }
     }
+
 }
