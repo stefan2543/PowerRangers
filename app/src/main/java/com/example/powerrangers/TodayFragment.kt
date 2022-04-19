@@ -65,7 +65,7 @@ class TodayFragment : Fragment() {
 
             }
             override fun onSwipeDown() {
-                 Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
 
 
             }

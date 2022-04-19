@@ -1,6 +1,7 @@
 package com.example.powerrangers.data
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -9,6 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.BufferedReader
+import java.io.File
 import java.io.FileReader
 import java.text.SimpleDateFormat
 import java.util.*
@@ -76,29 +78,12 @@ abstract class MediaRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             mediaDao.deleteAll()
 
-            var media = Media("check","check","check")
+            val media = Media("check","check", "check")
             mediaDao.insert(media)
 
-            BufferedReader(FileReader("tv.csv")).use { br ->
-                var line: String
-                while (br.readLine().also { line = it } != null) {
-                    val values: Array<String> =
-                        line.split(",").toTypedArray()
-                    var media = Media(values[0],values[1],values[2])
-                    mediaDao.insert(media)
-                }
-            }
-
-            BufferedReader(FileReader("movies.csv")).use { br ->
-                var line: String
-                while (br.readLine().also { line = it } != null) {
-                    val values: Array<String> =
-                        line.split(",").toTypedArray()
-                    var media = Media(values[0],values[1],"N/A")
-                    mediaDao.insert(media)
-                }
-            }
-
+//            val file = File("C:\\Users\\scrut\\AndroidStudioProjects\\PowerRangers\\app\\src\\main\\assets\\Movies.xlsx - Sheet1.csv")
+//            file.bufferedReader().forEachLine { Log.d("LINE","value = $it")
+//                println("value = $it\"")}
 
 
         }

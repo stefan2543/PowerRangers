@@ -4,6 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -20,7 +22,7 @@ interface MediaDao {
 
     // The flow always holds/caches latest version of data. Notifies its observers when the
     // data has changed.
-    @Query("SELECT * FROM media_table ORDER BY name ASC")
+    @Query("SELECT * FROM media_table ORDER BY title ASC")
     fun getAlphabetizedWords(): Flow<List<Media>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
