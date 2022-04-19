@@ -78,12 +78,35 @@ abstract class MediaRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             mediaDao.deleteAll()
 
-            val media = Media("check","check", "check")
+            val media = Media(0,"check","check", "check")
             mediaDao.insert(media)
 
 //            val file = File("C:\\Users\\scrut\\AndroidStudioProjects\\PowerRangers\\app\\src\\main\\assets\\Movies.xlsx - Sheet1.csv")
 //            file.bufferedReader().forEachLine { Log.d("LINE","value = $it")
 //                println("value = $it\"")}
+
+            BufferedReader(FileReader("TV.xlsx - Sheet1.csv")).use { br ->
+                var line: String
+                while (br.readLine().also { line = it } != null) {
+                    //Log.d("LINE", line)
+                    //println(line)
+                    val values: Array<String> =
+                        line.split(",").toTypedArray()
+                    val media = Media(0,values[0],values[1],values[2])
+                    mediaDao.insert(media)
+                }
+            }
+
+            BufferedReader(FileReader("Movies.xlsx - Sheet1.csv")).use { br ->
+                var line: String
+                while (br.readLine().also { line = it } != null) {
+                    val values: Array<String> =
+                        line.split(",").toTypedArray()
+                    val media = Media(0, values[0],values[1],"N/A")
+                    mediaDao.insert(media)
+                }
+            }
+
 
 
         }

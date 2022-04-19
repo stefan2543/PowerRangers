@@ -25,6 +25,9 @@ interface MediaDao {
     @Query("SELECT * FROM media_table ORDER BY title ASC")
     fun getAlphabetizedWords(): Flow<List<Media>>
 
+    @Query("SELECT * from media_table WHERE id = :id")
+    fun getMedia(id: Long): Flow<Media>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(media: Media)
 

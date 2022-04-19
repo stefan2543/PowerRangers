@@ -1,107 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <!--<androidx.recyclerview.widget.RecyclerView xmlns:tools="http://schemas.android.com/tools"
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:name="com.example.powerrangers.SearchFragment"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/todayButton"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/todayButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:context=".SearchFragment"
-        tools:listitem="@layout/fragment_search" >
+        tools:listitem="@layout/fragment_search">
 
 
-    </androidx.recyclerview.widget.RecyclerView>-->
+    </androidx.recyclerview.widget.RecyclerView>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/todayButton"
-        app:layout_constraintTop_toBottomOf="@+id/morb_img"
+        app:layout_constraintTop_toBottomOf="@id/list"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detailsButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="16dp"
         android:text="Today">
 
     </Button>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailsButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/morb_img"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:text="Details">
 
-    </Button>
-    <TextView
-        android:id="@+id/Release"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        android:text="Release Date"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/morb_release"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Title"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:text="Title"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintEnd_toStartOf="@id/Release"
-        app:layout_constraintBottom_toTopOf="@id/moribius" />
-
-    <ImageView
-        android:id="@+id/morb_img"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/Title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/morbius" />
-
-    <TextView
-        android:id="@+id/moribius"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Morbius"
-        android:translationY="30dp"
-        app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintTop_toBottomOf="@id/Title"
-        app:layout_constraintEnd_toStartOf="@id/morb_release"/>
-
-    <TextView
-        android:id="@+id/morb_release"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4/1/2022"
-        android:translationY="30dp"
-        app:layout_constraintStart_toEndOf="@id/moribius"
-        app:layout_constraintTop_toBottomOf="@id/Release"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>
