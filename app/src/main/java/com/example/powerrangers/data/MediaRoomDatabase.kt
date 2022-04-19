@@ -1,6 +1,7 @@
 package com.example.powerrangers.data
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -9,6 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.BufferedReader
+import java.io.File
 import java.io.FileReader
 import java.text.SimpleDateFormat
 import java.util.*
@@ -79,9 +81,15 @@ abstract class MediaRoomDatabase : RoomDatabase() {
             val media = Media(0,"check","check", "check")
             mediaDao.insert(media)
 
-            BufferedReader(FileReader("tv.csv")).use { br ->
+//            val file = File("C:\\Users\\scrut\\AndroidStudioProjects\\PowerRangers\\app\\src\\main\\assets\\Movies.xlsx - Sheet1.csv")
+//            file.bufferedReader().forEachLine { Log.d("LINE","value = $it")
+//                println("value = $it\"")}
+
+            BufferedReader(FileReader("TV.xlsx - Sheet1.csv")).use { br ->
                 var line: String
                 while (br.readLine().also { line = it } != null) {
+                    //Log.d("LINE", line)
+                    //println(line)
                     val values: Array<String> =
                         line.split(",").toTypedArray()
                     val media = Media(0,values[0],values[1],values[2])
@@ -89,7 +97,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 }
             }
 
-            BufferedReader(FileReader("movies.csv")).use { br ->
+            BufferedReader(FileReader("Movies.xlsx - Sheet1.csv")).use { br ->
                 var line: String
                 while (br.readLine().also { line = it } != null) {
                     val values: Array<String> =

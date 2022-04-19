@@ -22,14 +22,14 @@ class MediaViewModel(
         return mediaDao.getMedia(id).asLiveData()
     }
 
-    suspend fun pushCustomerData(columns:StringBuilder,values:StringBuilder) = withContext(
-        Dispatchers.IO){
-        val query = SimpleSQLiteQuery(
-            "INSERT INTO customer ($columns) values($values)",
-            arrayOf()
-        )
-        mediaDao.insertDataRawFormat(query)
-    }
+//    suspend fun pushCustomerData(columns:StringBuilder,values:StringBuilder) = withContext(
+//        Dispatchers.IO){
+//        val query = SimpleSQLiteQuery(
+//            "INSERT INTO customer ($columns) values($values)",
+//            arrayOf()
+//        )
+//        mediaDao.insertDataRawFormat(query)
+//    }
 
 }
 

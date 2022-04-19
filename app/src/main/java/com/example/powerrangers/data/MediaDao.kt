@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
 import kotlinx.coroutines.flow.Flow
 
@@ -32,6 +33,4 @@ interface MediaDao {
 
     @Query("DELETE FROM media_table")
     suspend fun deleteAll()
-
-    fun insertDataRawFormat(query: SupportSQLiteQuery): Boolean?
 }
