@@ -8,6 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
@@ -38,6 +39,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                     // Migration is not part of this codelab.
                     .fallbackToDestructiveMigration()
                     .addCallback(MediaDatabaseCallback(scope))
+                    //.createFromAsset("TV.xlsx - Sheet1.csv")
                     .build()
                 INSTANCE = instance
                 // return instance

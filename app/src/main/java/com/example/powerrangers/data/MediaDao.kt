@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.sqlite.db.SupportSQLiteQuery
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -23,9 +24,14 @@ interface MediaDao {
     @Query("SELECT * FROM media_table ORDER BY name ASC")
     fun getAlphabetizedWords(): Flow<List<Media>>
 
+    @Query("SELECT * from media_table WHERE id = :id")
+    fun getMedia(id: Long): Flow<Media>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(media: Media)
 
     @Query("DELETE FROM media_table")
     suspend fun deleteAll()
+
+    fun insertDataRawFormat(query: SupportSQLiteQuery): Boolean?
 }

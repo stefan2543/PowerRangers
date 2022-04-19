@@ -29,7 +29,7 @@
         android:textAlignment="center"
         android:textColor="#4CAF50"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/morb_release"
+        app:layout_constraintBottom_toTopOf="@id/release"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Title"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/morb_img"
         app:layout_constraintEnd_toStartOf="@id/Release"
-        app:layout_constraintBottom_toTopOf="@id/moribius" />
+        app:layout_constraintBottom_toTopOf="@id/title" />
 
     <ImageView
         android:id="@+id/morb_img"
@@ -60,31 +60,34 @@
         app:srcCompat="@drawable/morbius" />
 
     <TextView
-        android:id="@+id/moribius"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Morbius"
         android:translationY="30dp"
         app:layout_constraintStart_toEndOf="@id/morb_img"
         app:layout_constraintTop_toBottomOf="@id/Title"
-        app:layout_constraintEnd_toStartOf="@id/morb_release"/>
+        app:layout_constraintEnd_toStartOf="@id/release"
+        app:layout_constraintBottom_toTopOf="@id/description"/>
 
     <TextView
-        android:id="@+id/morb_release"
+        android:id="@+id/release"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="4/1/2022"
         android:translationY="30dp"
         app:layout_constraintStart_toEndOf="@id/moribius"
         app:layout_constraintTop_toBottomOf="@id/Release"
+        app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintEnd_toEndOf="parent"
 
         />
     <TextView
         android:layout_width="200dp"
+        android:id="@+id/description"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintTop_toBottomOf="@id/moribius"
+        app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintBottom_toTopOf="@id/addButton"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Description: Dangerously ill with a rare blood disorder and determined to save others from the same fate, Dr. Morbius attempts a desperate gamble. While at first it seems to be a radical success, a darkness inside of him is soon unleashed."

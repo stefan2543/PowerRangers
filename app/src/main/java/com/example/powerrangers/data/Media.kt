@@ -18,9 +18,11 @@ import java.util.*
 
 @Entity(tableName = "media_table")
 data class Media(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+
     @ColumnInfo(name = "name")
-    val media: String,
+    val name: String,
 
     @ColumnInfo(name = "date")
     var date: Date,

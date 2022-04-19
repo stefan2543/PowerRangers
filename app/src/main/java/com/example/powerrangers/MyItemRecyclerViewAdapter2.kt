@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.example.powerrangers.data.Media
 
 import com.example.powerrangers.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.powerrangers.databinding.FragmentSearchBinding
@@ -14,36 +17,56 @@ import com.example.powerrangers.databinding.FragmentSearchBinding
  * TODO: Replace the implementation with code for your data type.
  */
 class MyItemRecyclerViewAdapter2(
-    private val values: List<PlaceholderItem>
-) : RecyclerView.Adapter<MyItemRecyclerViewAdapter2.ViewHolder>() {
+    private val clickListener: (Media) -> Unit
+) : ListAdapter<Media, MyItemRecyclerViewAdapter2.MediaViewHolder>(DiffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    class MediaViewHolder(
+        private var binding: FragmentSearchBinding
+    ): RecyclerView.ViewHolder(binding.root) {
 
-        return ViewHolder(
-            FragmentSearchBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+        fun bind(media: Media) {
+            binding.media = media
+            binding.executePendingBindings()
+        }
+    }
+
+    companion object DiffCallback: DiffUtil.ItemCallback<Media>() {
+        override fun areItemsTheSame(oldItem: Media, newItem: Media): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Media, newItem: Media): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder {
+
+
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return MediaViewHolder(
+            FragmentSearchBinding.inflate(layoutInflater, parent, false)
         )
 
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
-        //holder.idView.text = item.id
-       // holder.contentView.text = item.content
-    }
-
-    override fun getItemCount(): Int = values.size
-
-    inner class ViewHolder(binding: FragmentSearchBinding) : RecyclerView.ViewHolder(binding.root) {
-        //val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.Title
-
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
+    override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
+        val media = getItem(position)
+        holder.itemView.setOnClickListener{
+            clickListener(media)
         }
+        holder.bind(media)
     }
+
+    //override fun getItemCount(): Int = values.size
+
+//    inner class ViewHolder(binding: FragmentSearchBinding) : RecyclerView.ViewHolder(binding.root) {
+//        //val idView: TextView = binding.itemNumber
+//        val contentView: TextView = binding.Title
+//
+//        override fun toString(): String {
+//            return super.toString() + " '" + contentView.text + "'"
+//        }
+//    }
 
 }
