@@ -3,25 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_search.xml" value="0.2" />
-        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_search_list.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.14221014492753623" />
-        <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.2" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/calendar_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/details_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_search.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_search_list.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.25" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.25" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/calendar_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_login.xml" value="0.1265625" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_search_list.xml" value="0.1125" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.1265625" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.1" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2045" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

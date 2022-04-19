@@ -1,16 +1,13 @@
 package com.example.powerrangers
 
+import OnSwipeTouchListener
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.example.powerrangers.placeholder.PlaceholderContent
 
 /**
@@ -52,6 +49,27 @@ class TodayFragment : Fragment() {
             }
         }*/
 
+
+        view.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeLeft() {
+                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+            }
+            override fun onSwipeRight() {
+                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+
+
+            }
+            override fun onSwipeUp() {
+                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+
+
+            }
+            override fun onSwipeDown() {
+                 Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+
+
+            }
+        })
 
         nextDayButton.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_todayFragment_self)}
         calendarButton.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)}

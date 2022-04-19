@@ -8,7 +8,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.File
+import java.io.BufferedReader
+import java.io.FileReader
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
@@ -39,7 +42,6 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                     // Migration is not part of this codelab.
                     .fallbackToDestructiveMigration()
                     .addCallback(MediaDatabaseCallback(scope))
-                    //.createFromAsset("TV.xlsx - Sheet1.csv")
                     .build()
                 INSTANCE = instance
                 // return instance
@@ -73,6 +75,30 @@ abstract class MediaRoomDatabase : RoomDatabase() {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
             mediaDao.deleteAll()
+
+            var media = Media("check","check","check")
+            mediaDao.insert(media)
+
+            BufferedReader(FileReader("tv.csv")).use { br ->
+                var line: String
+                while (br.readLine().also { line = it } != null) {
+                    val values: Array<String> =
+                        line.split(",").toTypedArray()
+                    var media = Media(values[0],values[1],values[2])
+                    mediaDao.insert(media)
+                }
+            }
+
+            BufferedReader(FileReader("movies.csv")).use { br ->
+                var line: String
+                while (br.readLine().also { line = it } != null) {
+                    val values: Array<String> =
+                        line.split(",").toTypedArray()
+                    var media = Media(values[0],values[1],"N/A")
+                    mediaDao.insert(media)
+                }
+            }
+
 
 
         }
