@@ -76,7 +76,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             mediaDao.deleteAll()
 
-            var media = Media("check","check","check")
+            val media = Media(0,"check","check", "check")
             mediaDao.insert(media)
 
             BufferedReader(FileReader("tv.csv")).use { br ->
@@ -84,7 +84,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 while (br.readLine().also { line = it } != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    var media = Media(values[0],values[1],values[2])
+                    val media = Media(0,values[0],values[1],values[2])
                     mediaDao.insert(media)
                 }
             }
@@ -94,7 +94,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 while (br.readLine().also { line = it } != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    var media = Media(values[0],values[1],"N/A")
+                    val media = Media(0, values[0],values[1],"N/A")
                     mediaDao.insert(media)
                 }
             }
