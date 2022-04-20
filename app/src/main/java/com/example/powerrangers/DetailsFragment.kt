@@ -55,9 +55,9 @@ class DetailsFragment : Fragment() {
 
     private fun bindMedia() {
         binding.apply {
-            title.text = media.name
-            release.text = media.date.toString()
-            //notes.text = media.notes
+            title.text = media?.name
+            release.text = media?.date
+            network.text = media?.network
         }
     }
 

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="media"
+        type="com.example.powerrangers.data.Media" />
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +37,7 @@
         android:textColor="#4CAF50"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/release"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/Network"
         app:layout_constraintStart_toEndOf="@+id/Title"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +55,20 @@
         app:layout_constraintEnd_toStartOf="@id/Release"
         app:layout_constraintBottom_toTopOf="@id/title" />
 
+    <TextView
+        android:id="@+id/Network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Network"
+        android:textAlignment="center"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Release"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/title" />
+
     <ImageView
         android:id="@+id/morb_img"
         android:layout_width="150dp"
@@ -63,7 +84,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Morbius"
+        android:text="@{media.name}"
         android:translationY="30dp"
         app:layout_constraintStart_toEndOf="@id/morb_img"
         app:layout_constraintTop_toBottomOf="@id/Title"
@@ -74,10 +95,23 @@
         android:id="@+id/release"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4/1/2022"
+        android:text="@{media.date.toString()}"
         android:translationY="30dp"
-        app:layout_constraintStart_toEndOf="@id/moribius"
+        app:layout_constraintStart_toEndOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/Release"
+        app:layout_constraintBottom_toTopOf="@id/description"
+        app:layout_constraintEnd_toStartOf="@id/network"
+
+        />
+
+    <TextView
+        android:id="@+id/network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{media.network}"
+        android:translationY="30dp"
+        app:layout_constraintStart_toEndOf="@id/release"
+        app:layout_constraintTop_toBottomOf="@id/Network"
         app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -94,3 +128,4 @@
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
