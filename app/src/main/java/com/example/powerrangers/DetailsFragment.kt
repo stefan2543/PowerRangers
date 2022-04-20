@@ -15,13 +15,14 @@ import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.DetailsFragmentBinding
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
+import com.example.powerrangers.viewmodel.MediaViewModelFactory2
 
 class DetailsFragment : Fragment() {
 
     private val navigationArgs: DetailsFragmentArgs by navArgs()
 
     private val viewModel: MediaViewModel by activityViewModels {
-        MediaViewModelFactory(
+        MediaViewModelFactory2(
             (activity?.application as BaseApplication).database.mediaDao()
         )
     }
@@ -46,7 +47,7 @@ class DetailsFragment : Fragment() {
         val id = navigationArgs.id
         // TODO: Observe a forageable that is retrieved by id, set the forageable variable,
         //  and call the bind forageable method
-        viewModel.getMedia(id).observe(this.viewLifecycleOwner) {Media ->
+        viewModel.getMedia(id)?.observe(this.viewLifecycleOwner) { Media ->
             media = Media
             bindMedia()
         }

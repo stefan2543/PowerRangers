@@ -19,7 +19,7 @@ class SearchFragment : Fragment() {
     private var columnCount = 1
     private val viewModel: MediaViewModel by activityViewModels {
         MediaViewModelFactory(
-            (activity?.application as BaseApplication).database.mediaDao()
+            (activity?.application as BaseApplication).repository
         )
     }
 
@@ -66,7 +66,7 @@ class SearchFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        viewModel.allMedia.observe(this.viewLifecycleOwner) {allMedia ->
+        viewModel.allMedia?.observe(this.viewLifecycleOwner) { allMedia ->
             adapter.submitList(allMedia)
         }
         binding.apply {

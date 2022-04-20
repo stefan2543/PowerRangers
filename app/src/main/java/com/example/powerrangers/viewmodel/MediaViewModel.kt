@@ -5,22 +5,24 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.*
-import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.powerrangers.data.Media
 import com.example.powerrangers.data.MediaDao
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.example.powerrangers.data.MediaRepository
+import kotlinx.coroutines.launch
 
 class MediaViewModel(
     // Pass dao here
-    private val mediaDao: MediaDao
+    private val repository: MediaRepository?,
+    private val mediaDao: MediaDao?
 ): ViewModel() {
 
-    val allMedia: LiveData<List<Media>> = mediaDao.getAlphabetizedWords().asLiveData()
+    val allMedia: LiveData<List<Media>>? = repository?.allMedia?.asLiveData()
 
-    fun getMedia(id: Long): LiveData<Media> {
-        return mediaDao.getMedia(id).asLiveData()
+    fun insert(media: Media) = viewModelScope.launch {
+        repository?.insert(media)
     }
+
+    fun getMedia(id: Long) : LiveData<Media>? = mediaDao?.getMedia(id)?.asLiveData()
 
 //    suspend fun pushCustomerData(columns:StringBuilder,values:StringBuilder) = withContext(
 //        Dispatchers.IO){
@@ -33,11 +35,21 @@ class MediaViewModel(
 
 }
 
-class MediaViewModelFactory(private val mediaDao: MediaDao) : ViewModelProvider.Factory {
+class MediaViewModelFactory(private val repository: MediaRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MediaViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return MediaViewModel(mediaDao) as T
+            return MediaViewModel(repository, null) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
+
+class MediaViewModelFactory2(private val mediaDao: MediaDao) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(MediaViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return MediaViewModel(null, mediaDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
