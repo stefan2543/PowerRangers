@@ -11,50 +11,56 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+        android:background="@drawable/back"
+        >
 
 
-    <ImageView
-        android:id="@+id/morb_img"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/morbius" />
+        <ImageView
+            android:id="@+id/morb_img"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/morbius" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@{media.name}"
-        app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/release"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{media.name}"
+            app:layout_constraintBottom_toTopOf="@id/release"
+            app:layout_constraintStart_toEndOf="@id/morb_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/release"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@{media.date.toString()}"
-        app:layout_constraintStart_toEndOf="@id/title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{media.date.toString()}"
+            app:layout_constraintBottom_toBottomOf="@+id/network"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/morb_img"
+            app:layout_constraintTop_toTopOf="@id/title"
+            tools:textSize="16sp"
 
-        />
+            />
+
         <TextView
             android:id="@+id/network"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{media.network}"
-            app:layout_constraintStart_toEndOf="@id/release"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintBottom_toBottomOf="@id/morb_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/morb_img"
+            app:layout_constraintTop_toTopOf="@id/release"
+            tools:textSize="16sp">
 
         </TextView>
 
