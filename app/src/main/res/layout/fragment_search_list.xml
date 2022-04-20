@@ -8,7 +8,7 @@
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Title"
+    android:text=""
     android:id="@+id/Title"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toTopOf="@id/list"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Release"
+        android:text=""
         android:id="@+id/Release"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/list"
@@ -30,14 +30,17 @@
     </TextView>
 
     <TextView
+        android:id="@+id/Network"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Network"
-        android:id="@+id/Network"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="TV Shows and Movies"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
