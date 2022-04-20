@@ -8,28 +8,33 @@
 
     <DatePicker
         android:id="@+id/date_Picker"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/todayButton"
-        app:layout_constraintTop_toBottomOf="@id/date_Picker"
+        android:headerBackground="@color/material_dynamic_secondary30"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/searchButton"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Today">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/todayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintEnd_toEndOf="@id/date_Picker"
+        app:layout_constraintTop_toTopOf="@id/date_Picker">
 
     </Button>
+
     <Button
+        android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date_Picker"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/todayButton"
-        android:text="Search">
+        android:text="Search"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintEnd_toEndOf="@id/date_Picker"
+        app:layout_constraintTop_toBottomOf="@id/todayButton">
 
     </Button>
 
