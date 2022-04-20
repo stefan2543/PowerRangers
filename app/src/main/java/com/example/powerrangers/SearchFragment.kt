@@ -1,23 +1,15 @@
 package com.example.powerrangers
 
 import android.os.Bundle
-import android.os.Environment
-import android.os.Environment.getExternalStorageDirectory
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.room.RoomMasterTable.TABLE_NAME
 import com.example.powerrangers.databinding.FragmentSearchListBinding
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
-import com.mortgage.fauxiq.pawnbroker.utils.CSVReader
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.io.FileReader
 
 /**
  * A fragment representing a list of Items.

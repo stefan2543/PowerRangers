@@ -1,4 +1,4 @@
-package com.mortgage.fauxiq.pawnbroker.utils
+package com.example.powerrangers.data
 
 /**
 Copyright 2005 Bytecode Pty Ltd.

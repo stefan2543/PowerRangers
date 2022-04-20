@@ -1,7 +1,6 @@
 package com.example.powerrangers.data
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -12,13 +11,10 @@ import kotlinx.coroutines.launch
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
-import java.text.SimpleDateFormat
+import java.io.InputStream
 import java.util.*
 
-/**
- * This is the backend. The database. This used to be done by the OpenHelper.
- * The fact that this has very few comments emphasizes its coolness.
- */
+
 @Database(entities = [Media::class], version = 1)
 abstract class MediaRoomDatabase : RoomDatabase() {
 
@@ -71,41 +67,45 @@ abstract class MediaRoomDatabase : RoomDatabase() {
 
         /**
          * Populate the database in a new coroutine.
-         * If you want to start with more words, just add them.
          */
         suspend fun populateDatabase(mediaDao: MediaDao) {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
             mediaDao.deleteAll()
 
-            val media = Media(0,"check","check", "check")
+            var media = Media(0,"notcheck","25", "check")
+            mediaDao.insert(media)
+            media = Media(2,"2heck","45", "check")
             mediaDao.insert(media)
 
-//            val file = File("C:\\Users\\scrut\\AndroidStudioProjects\\PowerRangers\\app\\src\\main\\assets\\Movies.xlsx - Sheet1.csv")
-//            file.bufferedReader().forEachLine { Log.d("LINE","value = $it")
-//                println("value = $it\"")}
+            var check = 3
 
-            BufferedReader(FileReader("TV.xlsx - Sheet1.csv")).use { br ->
-                var line: String
-                while (br.readLine().also { line = it } != null) {
-                    //Log.d("LINE", line)
-                    //println(line)
-                    val values: Array<String> =
-                        line.split(",").toTypedArray()
-                    val media = Media(0,values[0],values[1],values[2])
+            val file = File("C:\\Users\\rvark\\Downloads\\movies.txt")
+
+          val read = CSVReader(FileReader(file))
+            do{
+                val values = read.readNext()
+                if(values != null) {
+                    media = Media(check++.toLong(), values[0], values[1], values[2])
                     mediaDao.insert(media)
                 }
-            }
+            }while(values != null)
 
-            BufferedReader(FileReader("Movies.xlsx - Sheet1.csv")).use { br ->
+
+/*
+            BufferedReader(FileReader(file)).use { br ->
                 var line: String
                 while (br.readLine().also { line = it } != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    val media = Media(0, values[0],values[1],"N/A")
+                    val media = Media(check++.toLong(), values[0],values[1],"N/A")
                     mediaDao.insert(media)
                 }
+
+
             }
+
+ */
 
 
 

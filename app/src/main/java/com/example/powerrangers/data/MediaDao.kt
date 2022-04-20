@@ -22,7 +22,7 @@ interface MediaDao {
 
     // The flow always holds/caches latest version of data. Notifies its observers when the
     // data has changed.
-    @Query("SELECT * FROM media_table ORDER BY title ASC")
+    @Query("SELECT * FROM media_table ORDER BY name ASC")
     fun getAlphabetizedWords(): Flow<List<Media>>
 
     @Query("SELECT * from media_table WHERE id = :id")
