@@ -79,7 +79,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 while (line != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    val media = Media(0, values[0], values[1], "Theaters")
+                    val media = Media(0, values[0], values[1], "Theaters", false)
                     mediaDao.insert(media)
                     line = br.readLine()
                 }
@@ -90,7 +90,7 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 while (line != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    val media = Media(0, values[0], values[1], values[2])
+                    val media = Media(0, values[0], values[1], values[2], false)
                     mediaDao.insert(media)
                     line = br.readLine()
                 }

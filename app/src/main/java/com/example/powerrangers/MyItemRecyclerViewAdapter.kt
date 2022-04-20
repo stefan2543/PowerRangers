@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.example.powerrangers.data.Media
+import com.example.powerrangers.databinding.FragmentSearchBinding
 
 import com.example.powerrangers.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.powerrangers.databinding.FragmentTodayBinding
@@ -15,38 +19,47 @@ import com.example.powerrangers.databinding.FragmentTodayBinding
  * TODO: Replace the implementation with code for your data type.
  */
 class MyItemRecyclerViewAdapter(
-    //private val values: List<PlaceholderItem>
-) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
+    private val clickListener: (Media) -> Unit
+) : ListAdapter<Media, MyItemRecyclerViewAdapter.MediaViewHolder>(DiffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    class MediaViewHolder(
+        private var binding: FragmentTodayBinding
+    ): RecyclerView.ViewHolder(binding.root) {
 
-        return ViewHolder(
-            FragmentTodayBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+        fun bind(media: Media) {
+            binding.media = media
+            binding.executePendingBindings()
+        }
+    }
+
+    companion object DiffCallback: DiffUtil.ItemCallback<Media>() {
+        override fun areItemsTheSame(oldItem: Media, newItem: Media): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Media, newItem: Media): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyItemRecyclerViewAdapter.MediaViewHolder {
+
+
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return MediaViewHolder(
+            FragmentTodayBinding.inflate(layoutInflater, parent, false)
         )
 
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //val item = values[position]
-        holder.name.text = "Attack on Titan"
-        holder.release.text = "Sunday 12:00 AM CT"
-        holder.imageView.setImageResource(R.drawable._025e4b811cf2c61281856be28ffc2c91649000159_main_1649001573650)
+    override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
+        val media = getItem(position)
+        holder.itemView.setOnClickListener{
+            clickListener(media)
+        }
+        if (media.favorite){
+        holder.bind(media)}
     }
 
-    override fun getItemCount(): Int = 1//values.size
-
-    inner class ViewHolder(binding: FragmentTodayBinding) : RecyclerView.ViewHolder(binding.root) {
-        val name: TextView = binding.itemName
-        val imageView: ImageView = binding.itemImage
-        val release: TextView = binding.releaseTime
-
-        //override fun toString(): String {
-            //return super.toString() + " '" + release.text + "'"
-        //}
-    }
 
 }

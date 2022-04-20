@@ -15,15 +15,14 @@ import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.DetailsFragmentBinding
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
-import com.example.powerrangers.viewmodel.MediaViewModelFactory2
 
 class DetailsFragment : Fragment() {
 
     private val navigationArgs: DetailsFragmentArgs by navArgs()
 
     private val viewModel: MediaViewModel by activityViewModels {
-        MediaViewModelFactory2(
-            (activity?.application as BaseApplication).database.mediaDao()
+        MediaViewModelFactory(
+            (activity?.application as BaseApplication).repository
         )
     }
 
@@ -38,7 +37,10 @@ class DetailsFragment : Fragment() {
         _binding = DetailsFragmentBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         val addButton = binding.addButton
-        addButton.setOnClickListener{findNavController().navigate(R.id.action_searchFragment_to_todayFragment)}
+
+        addButton.setOnClickListener{
+            media.favorite = true
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
         return binding.root
     }
 
@@ -47,10 +49,13 @@ class DetailsFragment : Fragment() {
         val id = navigationArgs.id
         // TODO: Observe a forageable that is retrieved by id, set the forageable variable,
         //  and call the bind forageable method
-        viewModel.getMedia(id)?.observe(this.viewLifecycleOwner) { Media ->
+
+        viewModel.getMedia(id).observe(this.viewLifecycleOwner) { Media ->
             media = Media
+            if(media.favorite) {binding.addButton.text = "Remove from Watchlist"}
             bindMedia()
         }
+
     }
 
     private fun bindMedia() {

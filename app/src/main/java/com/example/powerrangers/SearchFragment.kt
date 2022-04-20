@@ -66,49 +66,13 @@ class SearchFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        viewModel.allMedia?.observe(this.viewLifecycleOwner) { allMedia ->
+        viewModel.allMedia.observe(this.viewLifecycleOwner) { allMedia ->
             adapter.submitList(allMedia)
         }
         binding.apply {
            list.adapter = adapter
             }
         }
-
-//    private fun importCSV(){
-//        val csvReader =
-//            CSVReader(FileReader())/* path of local storage (it should be your csv file locatioin)*/
-//        var nextLine: Array<String> ? = null
-//        var count = 0
-//        val columns = StringBuilder()
-//        GlobalScope.launch(Dispatchers.IO) {
-//            do {
-//                val value = StringBuilder()
-//                nextLine = csvReader.readNext()
-//                nextLine?.let {nextLine->
-//                    for (i in 0 until nextLine.size - 1) {
-//                        if (count == 0) {                             // the count==0 part only read
-//                            if (i == nextLine.size - 2) {             //your csv file column name
-//                                columns.append(nextLine[i])
-//                                count =1
-//                            }
-//                            else
-//                                columns.append(nextLine[i]).append(",")
-//                        } else {                         // this part is for reading value of each row
-//                            if (i == nextLine.size - 2) {
-//                                value.append("'").append(nextLine[i]).append("'")
-//                                count = 2
-//                            }
-//                            else
-//                                value.append("'").append(nextLine[i]).append("',")
-//                        }
-//                    }
-//                    if (count==2) {
-//                        viewModel.pushCustomerData(columns, value)//write here your code to insert all values
-//                    }
-//                }
-//            }while ((nextLine)!=null)
-//        }
-//    }
 
 
     companion object {

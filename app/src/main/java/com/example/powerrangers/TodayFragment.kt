@@ -7,8 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.example.powerrangers.databinding.FragmentSearchListBinding
+import com.example.powerrangers.databinding.FragmentTodayBinding
+import com.example.powerrangers.databinding.FragmentTodayListBinding
 import com.example.powerrangers.placeholder.PlaceholderContent
+import com.example.powerrangers.viewmodel.MediaViewModel
+import com.example.powerrangers.viewmodel.MediaViewModelFactory
+import kotlinx.android.synthetic.main.fragment_search_list.*
 
 /**
  * A fragment representing a list of Items.
@@ -16,7 +24,13 @@ import com.example.powerrangers.placeholder.PlaceholderContent
 class TodayFragment : Fragment() {
 
     private var columnCount = 1
-
+    private val viewModel: MediaViewModel by activityViewModels {
+        MediaViewModelFactory(
+            (activity?.application as BaseApplication).repository
+        )
+    }
+    private var _binding: FragmentTodayListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +44,12 @@ class TodayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_today_list, container, false)
+        _binding = FragmentTodayListBinding.inflate(inflater, container, false)
 
         // Buttons
-        val nextDayButton = view.findViewById<Button>(R.id.nextDayButton)
-        val calendarButton = view.findViewById<Button>(R.id.calendarButton)
-        val searchButton = view.findViewById<Button>(R.id.searchButton)
+        val nextDayButton = binding.nextDayButton
+        val calendarButton = binding.calendarButton
+        val searchButton = binding.searchButton
 
 
         /*// Set the adapter
@@ -50,31 +64,51 @@ class TodayFragment : Fragment() {
         }*/
 
 
-        view.setOnTouchListener(object : OnSwipeTouchListener(context) {
+        view?.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeLeft() {
-                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
             }
+
             override fun onSwipeRight() {
-                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
 
 
             }
+
             override fun onSwipeUp() {
-                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
 
 
             }
+
             override fun onSwipeDown() {
-                Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
 
 
             }
         })
 
-        nextDayButton.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_todayFragment_self)}
-        calendarButton.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_calendarFragment)}
-        searchButton.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_todayFragment_to_searchFragment)}
-        return view
+        nextDayButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentSelf())}
+        calendarButton.setOnClickListener { findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
+        searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment())}
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val adapter = MyItemRecyclerViewAdapter { media ->
+            val action = TodayFragmentDirections.actionTodayFragmentToDetailsFragment(media.id)
+            findNavController().navigate(action)
+        }
+
+        viewModel.allMedia.observe(this.viewLifecycleOwner) { allMedia ->
+            adapter.submitList(allMedia)
+        }
+        binding.apply {
+            list.adapter = adapter
+        }
     }
 
     companion object {

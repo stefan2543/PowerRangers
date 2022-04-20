@@ -28,5 +28,8 @@ data class Media(
     var date: String,
 
     @ColumnInfo(name = "network")
-    var network: String
+    var network: String,
+
+    @ColumnInfo(name = "favorite")
+    var favorite: Boolean
 )

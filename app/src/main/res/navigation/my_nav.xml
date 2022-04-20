@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_todayFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_todayFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/calendarFragment"
@@ -68,5 +71,8 @@
         <argument
             android:name="id"
             app:argType="long" />
+        <action
+            android:id="@+id/action_detailsFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
     </fragment>
 </navigation>
