@@ -11,10 +11,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.DetailsFragmentBinding
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
+import kotlinx.android.synthetic.main.fragment_search.*
 
 class DetailsFragment : Fragment() {
 
@@ -38,6 +40,11 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         val addButton = binding.addButton
 
+        container?.context?.let {
+            Glide.with(it)
+                .load("http://via.placeholder.com/300.png")
+                .into(morb_img)
+        };
         addButton.setOnClickListener{
             media.favorite = true
             findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
