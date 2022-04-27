@@ -20,6 +20,7 @@
             android:id="@+id/morb_img"
             android:layout_width="150dp"
             android:layout_height="200dp"
+            android:layout_margin="10dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/title"
@@ -29,9 +30,9 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxWidth="60sp"
+            android:layout_gravity="left"
             android:text="@{media.name}"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/release"
@@ -41,8 +42,10 @@
 
         <TextView
             android:id="@+id/release"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:text="@{media.date.toString()}"
             app:layout_constraintBottom_toTopOf="@+id/network"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +56,10 @@
 
         <TextView
             android:id="@+id/network"
-            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:text="@{media.network}"
             app:layout_constraintBottom_toBottomOf="@id/morb_img"
             app:layout_constraintEnd_toEndOf="parent"
