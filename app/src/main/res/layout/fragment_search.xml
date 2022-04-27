@@ -8,12 +8,12 @@
             name="media"
             type="com.example.powerrangers.data.Media" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-        android:background="@drawable/back"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/back">
 
 
         <ImageView
@@ -31,9 +31,9 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxWidth="60sp"
             android:text="@{media.name}"
             android:textStyle="bold"
-            android:maxWidth="60sp"
             app:layout_constraintBottom_toTopOf="@id/release"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/morb_img"
