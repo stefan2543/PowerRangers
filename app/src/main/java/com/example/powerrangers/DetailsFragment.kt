@@ -39,6 +39,7 @@ class DetailsFragment : Fragment() {
         _binding = DetailsFragmentBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         val addButton = binding.addButton
+        val searchButton = binding.searchButton
 
         this.let {
             Glide.with(it)
@@ -49,6 +50,10 @@ class DetailsFragment : Fragment() {
         addButton.setOnClickListener{
             media.favorite = true
             findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
+
+        searchButton.setOnClickListener{
+            media.favorite = true
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment())}
         return binding.root
     }
 
