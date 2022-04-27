@@ -40,11 +40,12 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         val addButton = binding.addButton
 
-        container?.context?.let {
+        this.let {
             Glide.with(it)
-                .load("http://via.placeholder.com/300.png")
-                .into(morb_img)
+                .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0O0260hzKyKursZUTtZAxECP0gSVJ2JXwQ&usqp=CAU")
+                .into(binding.morbImg)
         };
+
         addButton.setOnClickListener{
             media.favorite = true
             findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}

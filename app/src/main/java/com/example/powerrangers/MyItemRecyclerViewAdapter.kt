@@ -8,11 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.bumptech.glide.Glide
 import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.FragmentSearchBinding
 
 import com.example.powerrangers.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.powerrangers.databinding.FragmentTodayBinding
+import kotlinx.android.synthetic.main.fragment_today.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
@@ -29,6 +31,8 @@ class MyItemRecyclerViewAdapter(
         fun bind(media: Media) {
             binding.media = media
             binding.executePendingBindings()
+
+
         }
     }
 
@@ -46,6 +50,7 @@ class MyItemRecyclerViewAdapter(
 
 
         val layoutInflater = LayoutInflater.from(parent.context)
+
         return MediaViewHolder(
             FragmentTodayBinding.inflate(layoutInflater, parent, false)
         )
@@ -54,6 +59,14 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
         val media = getItem(position)
+
+        holder.itemView.context.let {
+            Glide.with(it)
+                .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0O0260hzKyKursZUTtZAxECP0gSVJ2JXwQ&usqp=CAU")
+                .into(holder.itemView.morb_img)
+        };
+
+
         holder.itemView.setOnClickListener{
             clickListener(media)
         }

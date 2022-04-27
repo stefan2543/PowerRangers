@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toStartOf="@id/Title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/morbius" />
+        />
 
     <TextView
         android:id="@+id/title"

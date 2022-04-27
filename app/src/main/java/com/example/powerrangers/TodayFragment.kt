@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.powerrangers.databinding.FragmentSearchListBinding
 import com.example.powerrangers.databinding.FragmentTodayBinding
 import com.example.powerrangers.databinding.FragmentTodayListBinding
@@ -17,6 +18,7 @@ import com.example.powerrangers.placeholder.PlaceholderContent
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
 import kotlinx.android.synthetic.main.fragment_search_list.*
+import kotlinx.android.synthetic.main.fragment_today.view.*
 
 /**
  * A fragment representing a list of Items.
@@ -102,6 +104,7 @@ class TodayFragment : Fragment() {
             val action = TodayFragmentDirections.actionTodayFragmentToDetailsFragment(media.id)
             findNavController().navigate(action)
         }
+
 
         viewModel.allMedia.observe(this.viewLifecycleOwner) { allMedia ->
             adapter.submitList(allMedia)

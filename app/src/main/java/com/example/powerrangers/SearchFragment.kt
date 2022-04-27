@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.powerrangers.databinding.FragmentSearchListBinding
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
+import kotlinx.android.synthetic.main.fragment_search.*
 
 /**
  * A fragment representing a list of Items.
@@ -40,6 +42,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSearchListBinding.inflate(inflater, container, false)
+
         //Buttons
         val todayButton = binding.todayButton
         //importCSV()
