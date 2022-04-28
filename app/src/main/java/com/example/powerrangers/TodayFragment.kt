@@ -114,7 +114,7 @@ class TodayFragment : Fragment() {
                     validMedia.add(media)
                 }
             }
-            adapter.submitList(validMedia)
+            adapter.submitList(validMedia.sortedBy { it.date })
         }
         binding.apply {
             list.adapter = adapter
