@@ -52,7 +52,7 @@ class DetailsFragment : Fragment() {
             findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
 
         searchButton.setOnClickListener{
-            media.favorite = true
+            //media.favorite = true
             findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment())}
         return binding.root
     }
@@ -66,16 +66,17 @@ class DetailsFragment : Fragment() {
         viewModel.getMedia(id).observe(this.viewLifecycleOwner) { Media ->
             media = Media
             if(media.favorite) {binding.addButton.text = "Remove from Watchlist"}
-            bindMedia()
+            else {binding.addButton.text = "Add to Watchlist" }
+            bindMedia(media)
         }
 
     }
 
-    private fun bindMedia() {
+    private fun bindMedia(media: Media) {
         binding.apply {
-            title.text = media?.name
-            release.text = media?.date
-            network.text = media?.network
+            title.text = media.name
+            release.text = media.date
+            network.text = media.network
         }
     }
 
