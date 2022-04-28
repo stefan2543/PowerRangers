@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.FragmentSearchListBinding
 import com.example.powerrangers.databinding.FragmentTodayBinding
 import com.example.powerrangers.databinding.FragmentTodayListBinding
@@ -107,7 +108,13 @@ class TodayFragment : Fragment() {
 
 
         viewModel.allMedia.observe(this.viewLifecycleOwner) { allMedia ->
-            adapter.submitList(allMedia)
+            val validMedia : MutableList<Media> = mutableListOf()
+            for (media in allMedia) {
+                if (media.favorite) {
+                    validMedia.add(media)
+                }
+            }
+            adapter.submitList(validMedia)
         }
         binding.apply {
             list.adapter = adapter
