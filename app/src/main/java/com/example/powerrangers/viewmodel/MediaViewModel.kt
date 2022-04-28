@@ -1,5 +1,6 @@
 package com.example.powerrangers.viewmodel
 
+import android.content.ClipData
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +24,39 @@ class MediaViewModel(
     }
 
     fun getMedia(id: Long) : LiveData<Media> = repository.getMedia(id).asLiveData()
+
+    fun updateMedia(
+        mediaId: Long,
+        mediaName: String,
+        mediaRelease: String,
+        mediaPlatform: String,
+        mediaFavorite: Boolean
+    ) {
+        val updatedMedia = getUpdatedMediaEntry(mediaId, mediaName, mediaRelease, mediaPlatform, mediaFavorite)
+        updateMedia(updatedMedia)
+    }
+
+    fun updateMedia(media: Media) {
+        viewModelScope.launch {
+            repository.update(media)
+        }
+    }
+
+    private fun getUpdatedMediaEntry(
+        mediaId: Long,
+        mediaName: String,
+        mediaRelease: String,
+        mediaPlatform: String,
+        mediaFavorite: Boolean
+    ): Media {
+        return Media(
+            id = mediaId,
+            name = mediaName,
+            date = mediaRelease,
+            network = mediaPlatform,
+            favorite = mediaFavorite
+        )
+    }
 
 //    suspend fun pushCustomerData(columns:StringBuilder,values:StringBuilder) = withContext(
 //        Dispatchers.IO){

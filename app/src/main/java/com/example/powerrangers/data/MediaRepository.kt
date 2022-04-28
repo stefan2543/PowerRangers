@@ -27,4 +27,10 @@ class MediaRepository(private val mediaDao: MediaDao) {
     fun getMedia(id: Long) : Flow<Media> {
         return mediaDao.getMedia(id)
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun update(media: Media) {
+        return mediaDao.update(media)
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.powerrangers.data
 
+import android.content.ClipData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -33,4 +34,7 @@ interface MediaDao {
 
     @Query("DELETE FROM media_table")
     suspend fun deleteAll()
+
+    @Update
+    suspend fun update(media: Media)
 }

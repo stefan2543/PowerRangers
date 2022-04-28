@@ -38,7 +38,7 @@ class DetailsFragment : Fragment() {
     ): View? {
         _binding = DetailsFragmentBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        val addButton = binding.addButton
+
         val searchButton = binding.searchButton
 
         this.let {
@@ -46,10 +46,6 @@ class DetailsFragment : Fragment() {
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0O0260hzKyKursZUTtZAxECP0gSVJ2JXwQ&usqp=CAU")
                 .into(binding.morbImg)
         };
-
-        addButton.setOnClickListener{
-            media.favorite = true
-            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
 
         searchButton.setOnClickListener{
             //media.favorite = true
@@ -64,9 +60,16 @@ class DetailsFragment : Fragment() {
         //  and call the bind forageable method
 
         viewModel.getMedia(id).observe(this.viewLifecycleOwner) { Media ->
+            val addButton = binding.addButton
             media = Media
             if(media.favorite) {binding.addButton.text = "Remove from Watchlist"}
             else {binding.addButton.text = "Add to Watchlist" }
+            addButton.setOnClickListener{
+                val newMedia: Media
+                if(media.favorite) {newMedia = media.copy(favorite = false)}
+                else { newMedia = media.copy(favorite = true)}
+                viewModel.updateMedia(newMedia)
+                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
             bindMedia(media)
         }
 
