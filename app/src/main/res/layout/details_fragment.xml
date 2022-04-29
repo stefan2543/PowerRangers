@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/searchButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/morb_img">
+        app:layout_constraintTop_toBottomOf="@id/description">
 
     </Button>
 
@@ -35,52 +35,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/addButton"
-        app:layout_constraintTop_toBottomOf="@id/morb_img">
+        app:layout_constraintTop_toBottomOf="@id/description">
 
     </Button>
 
-    <TextView
-        android:id="@+id/Release"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        android:text="Release Date"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/release"
-        app:layout_constraintEnd_toStartOf="@id/Network"
-        app:layout_constraintStart_toEndOf="@+id/Title"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:text="Title"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintEnd_toStartOf="@id/Release"
-        app:layout_constraintBottom_toTopOf="@id/title" />
-
-    <TextView
-        android:id="@+id/Network"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:text="Network"
-        android:textAlignment="center"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/Release"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/title" />
 
     <ImageView
         android:id="@+id/morb_img"
@@ -88,7 +46,7 @@
         android:layout_height="200dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/Title"
+        app:layout_constraintEnd_toStartOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -98,22 +56,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@{media.name}"
+        android:layout_gravity="left"
         android:translationY="30dp"
+        app:layout_constraintBottom_toTopOf="@id/release"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintTop_toBottomOf="@id/Title"
-        app:layout_constraintEnd_toStartOf="@id/release"
-        app:layout_constraintBottom_toTopOf="@id/description"/>
+        app:layout_constraintTop_toTopOf="@id/morb_img" />
 
     <TextView
         android:id="@+id/release"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@{media.date.toString()}"
+        android:layout_gravity="left"
         android:translationY="30dp"
-        app:layout_constraintStart_toEndOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/Release"
-        app:layout_constraintBottom_toTopOf="@id/description"
-        app:layout_constraintEnd_toStartOf="@id/network"
+        app:layout_constraintStart_toEndOf="@id/morb_img"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintBottom_toTopOf="@id/release"
+        app:layout_constraintEnd_toEndOf="parent"
 
         />
 
@@ -122,23 +82,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@{media.network}"
-        android:translationY="30dp"
-        app:layout_constraintStart_toEndOf="@id/release"
-        app:layout_constraintTop_toBottomOf="@id/Network"
+        android:layout_gravity="left"
+        app:layout_constraintStart_toEndOf="@id/morb_img"
+        app:layout_constraintTop_toBottomOf="@id/release"
         app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintEnd_toEndOf="parent"
 
         />
+
     <TextView
-        android:layout_width="200dp"
         android:id="@+id/description"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/morb_img"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_margin="10dp"
+        android:text="Description: Dangerously ill with a rare blood disorder and determined to save others from the same fate, Dr. Morbius attempts a desperate gamble. While at first it seems to be a radical success, a darkness inside of him is soon unleashed."
         app:layout_constraintBottom_toTopOf="@id/addButton"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Description: Dangerously ill with a rare blood disorder and determined to save others from the same fate, Dr. Morbius attempts a desperate gamble. While at first it seems to be a radical success, a darkness inside of him is soon unleashed."
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/morb_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
