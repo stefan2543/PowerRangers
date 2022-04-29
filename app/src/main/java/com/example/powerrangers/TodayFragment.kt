@@ -2,14 +2,14 @@ package com.example.powerrangers
 
 import OnSwipeTouchListener
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
+import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.FragmentSearchListBinding
@@ -73,27 +73,17 @@ class TodayFragment : Fragment() {
             }
 
             override fun onSwipeRight() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))
 
 
             }
 
-            override fun onSwipeUp() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
 
-
-            }
-
-            override fun onSwipeDown() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
-
-
-            }
         })
 
         nextDayButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentSelf())}
         calendarButton.setOnClickListener { findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
-        searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment())}
+        searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))}
         return binding.root
     }
 
@@ -120,6 +110,11 @@ class TodayFragment : Fragment() {
             list.adapter = adapter
         }
     }
+
+
+
+
+
 
     companion object {
 

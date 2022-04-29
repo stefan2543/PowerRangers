@@ -49,7 +49,7 @@ class DetailsFragment : Fragment() {
 
         searchButton.setOnClickListener{
             //media.favorite = true
-            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment())}
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0))}
         return binding.root
     }
 

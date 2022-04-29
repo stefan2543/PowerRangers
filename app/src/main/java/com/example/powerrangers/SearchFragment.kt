@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.FragmentSearchListBinding
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
 class SearchFragment : Fragment() {
 
     private var columnCount = 1
+    private val navigationArgs: SearchFragmentArgs by navArgs()
     private val viewModel: MediaViewModel by activityViewModels {
         MediaViewModelFactory(
             (activity?.application as BaseApplication).repository
@@ -70,7 +73,22 @@ class SearchFragment : Fragment() {
         }
 
         viewModel.allMedia.observe(this.viewLifecycleOwner) { allMedia ->
-            adapter.submitList(allMedia)
+            val month = navigationArgs.month
+            val year = navigationArgs.year - 2000
+            val day = navigationArgs.day
+            val date : String
+            val validMedia : MutableList<Media> = mutableListOf()
+            if (month != 0) {
+                date = "$month/$day/$year"
+                for (media in allMedia) {
+                    if (media.date == date) {
+                        validMedia.add(media)
+                    }
+                }
+                adapter.submitList(validMedia.sortedBy { it.date })
+            }
+            else {adapter.submitList(allMedia.sortedBy { it.date })}
+
         }
         binding.apply {
            list.adapter = adapter

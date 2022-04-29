@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import java.util.*
 
 class CalendarFragment : Fragment() {
@@ -29,7 +30,8 @@ class CalendarFragment : Fragment() {
         val todayButton = view.findViewById<Button>(R.id.todayButton)
         val searchButton = view.findViewById<Button>(R.id.searchButton)
         todayButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_calendarFragment_to_todayFragment)}
-        searchButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_calendarFragment_to_searchFragment)}
+        searchButton.setOnClickListener{val action = CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(0, 0, 0)
+            findNavController().navigate(action)}
 
         val datePicker = view.findViewById<DatePicker>(R.id.date_Picker)
         val today = Calendar.getInstance()
@@ -38,8 +40,10 @@ class CalendarFragment : Fragment() {
 
         ) { view, year, month, day ->
             val month = month + 1
-            val msg = "You Selected: $day/$month/$year"
-            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+           // val msg = "You Selected: $day/$month/$year"
+           // Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+            val action = CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(month, year, day)
+            findNavController().navigate(action)
         }
 
         return view
