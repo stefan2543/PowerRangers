@@ -34,33 +34,35 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@{media.name}"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/release"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/morb_img"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/morb_img" />
 
         <TextView
             android:id="@+id/release"
             android:layout_width="0dp"
-            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:layout_margin="10dp"
             android:text="@{media.date.toString()}"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/network"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/morb_img"
-            app:layout_constraintTop_toBottomOf="@id/title"
 
-            />
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
         <TextView
             android:id="@+id/network"
-            android:layout_margin="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:layout_margin="10dp"
             android:text="@{media.network}"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/morb_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/morb_img"

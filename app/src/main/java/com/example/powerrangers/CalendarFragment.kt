@@ -1,5 +1,6 @@
 package com.example.powerrangers
 
+import OnSwipeTouchListener
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import java.util.*
@@ -33,6 +35,14 @@ class CalendarFragment : Fragment() {
         searchButton.setOnClickListener{val action = CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(0, 0, 0)
             findNavController().navigate(action)}
 
+        view?.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeLeft() {
+                findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToTodayFragment())
+            }
+
+
+        })
+
         val datePicker = view.findViewById<DatePicker>(R.id.date_Picker)
         val today = Calendar.getInstance()
         datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
@@ -51,6 +61,7 @@ class CalendarFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = "Calendar"
         viewModel = ViewModelProvider(this).get(CalendarViewModel::class.java)
         // TODO: Use the ViewModel
     }
