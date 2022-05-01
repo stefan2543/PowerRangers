@@ -1,6 +1,7 @@
 package com.example.powerrangers
 
 import OnSwipeTouchListener
+import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -34,6 +35,7 @@ class DetailsFragment : Fragment() {
     private var _binding: DetailsFragmentBinding? = null
     private val binding get() = _binding!!
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,10 +45,9 @@ class DetailsFragment : Fragment() {
 
         val searchButton = binding.searchButton
 
-        view?.setOnTouchListener(object : OnSwipeTouchListener(context) {
-            override fun onSwipeLeft() {
-                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0))
-            }
+        binding.frameLayout.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0))            }
 
 
         })

@@ -35,9 +35,10 @@ class CalendarFragment : Fragment() {
         searchButton.setOnClickListener{val action = CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(0, 0, 0)
             findNavController().navigate(action)}
 
-        view?.setOnTouchListener(object : OnSwipeTouchListener(context) {
+        container?.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeLeft() {
-                findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToTodayFragment())
+                super.onSwipeLeft()
+                Navigation.findNavController(view).navigate(R.id.action_calendarFragment_to_todayFragment)
             }
 
 
