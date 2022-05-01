@@ -71,9 +71,7 @@ class TodayFragment : Fragment() {
         }*/
 
 
-        binding.Layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
-            override fun onSwipeLeft() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())            }
+        binding.list.setOnTouchListener(object : OnSwipeTouchListener(context) {
 
             override fun onSwipeRight() {
                 findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
