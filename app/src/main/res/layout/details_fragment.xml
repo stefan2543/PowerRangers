@@ -25,7 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/searchButton"
-        app:layout_constraintTop_toBottomOf="@id/description">
+        app:layout_constraintTop_toTopOf="@id/description">
 
     </Button>
 
@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/addButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/addButton">
+        app:layout_constraintTop_toTopOf="@id/description">
 
     </Button>
 

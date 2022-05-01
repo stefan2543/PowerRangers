@@ -1,11 +1,13 @@
 package com.example.powerrangers
 
 import OnSwipeTouchListener
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -44,6 +46,7 @@ class TodayFragment : Fragment() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,21 +71,17 @@ class TodayFragment : Fragment() {
         }*/
 
 
-        view?.setOnTouchListener(object : OnSwipeTouchListener(context) {
+        binding.Layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeLeft() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
-            }
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())            }
 
             override fun onSwipeRight() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))
-
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
 
             }
-
-
         })
 
-        nextDayButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentSelf())}
+        nextDayButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentSelf()) }
         calendarButton.setOnClickListener { findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
         searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))}
         return binding.root
