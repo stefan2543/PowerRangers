@@ -58,7 +58,6 @@ class TodayFragment : Fragment() {
         val calendarButton = binding.calendarButton
         val searchButton = binding.searchButton
 
-
         /*// Set the adapter
         if (view is RecyclerView) {
             with(view) {
@@ -71,24 +70,17 @@ class TodayFragment : Fragment() {
         }*/
 
 
-        binding.list.setOnTouchListener(object : OnSwipeTouchListener(context) {
-
-            override fun onSwipeRight() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())
-
-            }
-        })
-
         nextDayButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentSelf()) }
         calendarButton.setOnClickListener { findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
         searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))}
         return binding.root
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as AppCompatActivity).supportActionBar?.title = "Today"
+        (activity as AppCompatActivity).supportActionBar?.title = "Your Watchlist"
 
         val adapter = MyItemRecyclerViewAdapter { media ->
             val action = TodayFragmentDirections.actionTodayFragmentToDetailsFragment(media.id)
@@ -107,6 +99,7 @@ class TodayFragment : Fragment() {
         }
         binding.apply {
             list.adapter = adapter
+
         }
     }
 
