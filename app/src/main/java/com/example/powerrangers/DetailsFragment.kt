@@ -52,11 +52,6 @@ class DetailsFragment : Fragment() {
 
         })
 
-        this.let {
-            Glide.with(it)
-                .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0O0260hzKyKursZUTtZAxECP0gSVJ2JXwQ&usqp=CAU")
-                .into(binding.morbImg)
-        };
 
         searchButton.setOnClickListener{
             //media.favorite = true
@@ -93,6 +88,13 @@ class DetailsFragment : Fragment() {
             title.text = media.name
             release.text = media.date
             network.text = media.network
+            description.text = media.description
+
+            view?.let {
+                Glide.with(it)
+                    .load(media.image)
+                    .into(binding.morbImg)
+            };
         }
     }
 

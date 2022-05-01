@@ -31,5 +31,12 @@ data class Media(
     var network: String,
 
     @ColumnInfo(name = "favorite")
-    var favorite: Boolean
+    var favorite: Boolean,
+
+    @ColumnInfo(name = "image")
+    var image: String,
+
+    @ColumnInfo(name = "description")
+    var description: String
+
 )

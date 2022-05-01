@@ -30,9 +30,11 @@ class MediaViewModel(
         mediaName: String,
         mediaRelease: String,
         mediaPlatform: String,
-        mediaFavorite: Boolean
+        mediaFavorite: Boolean,
+        mediaImage: String,
+        mediaDescription: String
     ) {
-        val updatedMedia = getUpdatedMediaEntry(mediaId, mediaName, mediaRelease, mediaPlatform, mediaFavorite)
+        val updatedMedia = getUpdatedMediaEntry(mediaId, mediaName, mediaRelease, mediaPlatform, mediaFavorite, mediaImage, mediaDescription)
         updateMedia(updatedMedia)
     }
 
@@ -47,14 +49,18 @@ class MediaViewModel(
         mediaName: String,
         mediaRelease: String,
         mediaPlatform: String,
-        mediaFavorite: Boolean
+        mediaFavorite: Boolean,
+        mediaImage: String,
+        mediaDescription: String
     ): Media {
         return Media(
             id = mediaId,
             name = mediaName,
             date = mediaRelease,
             network = mediaPlatform,
-            favorite = mediaFavorite
+            favorite = mediaFavorite,
+            image = mediaImage,
+            description = mediaDescription
         )
     }
 

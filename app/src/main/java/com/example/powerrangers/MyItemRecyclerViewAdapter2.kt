@@ -58,7 +58,7 @@ class MyItemRecyclerViewAdapter2(
 
         holder.itemView.context.let {
             Glide.with(it)
-                .load("https://m.media-amazon.com/images/I/71BPuv+iRbL._AC_SL1000_.jpg")
+                .load(media.image)
                 .into(holder.itemView.morb_img)
         };
 
