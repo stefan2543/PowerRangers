@@ -57,6 +57,8 @@ class SearchFragment : Fragment() {
         binding.constraint.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
                 findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToTodayFragment())           }
+            override fun onSwipeLeft() {
+                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFilterFragment())           }
 
         })
 
@@ -92,14 +94,37 @@ class SearchFragment : Fragment() {
             val month = navigationArgs.month
             val year = navigationArgs.year
             val day = navigationArgs.day
+            val filter = navigationArgs.filter
             val date : LocalDate
             val nextdate: LocalDate
             val validMedia : MutableList<Media> = mutableListOf()
-            if (month != 0) {
+            if (filter != ""){
+                for (media in allMedia) {
+                    val mediaFilter = media.network
+                    val mediaTitle = media.name
+                    if (mediaFilter == filter || mediaTitle == filter) {
+                        validMedia.add(media)
+                    }
+                }
+                adapter.submitList(validMedia.sortedBy {
+                    val mediaDateArray = it.date.split("/").toTypedArray()
+                    val mediaYear = mediaDateArray[2].toInt() + 2000
+                    var mediaMonth = mediaDateArray[0]
+                    if (mediaMonth[0].toString() == " ") {
+                        var correctedMonth = ""
+                        for (i in 1 until mediaMonth.length){
+                            correctedMonth += mediaMonth[i].toString()
+                        }
+                        mediaMonth = correctedMonth
+                    }
+                    val mediaDay = mediaDateArray[1].toInt()
+                    LocalDate.of(mediaYear, mediaMonth.toInt(), mediaDay)
+                })
+            }
+            else if (month != 0) {
                 date = LocalDate.of(year,month,day)
                 nextdate = date.plus(Period.of(0,0,6))
                 for (media in allMedia) {
-                    println(media.id.toString() + media.date)
                     val mediaDateArray = media.date.split("/").toTypedArray()
                     val mediaYear = mediaDateArray[2].toInt() + 2000
                     var mediaMonth = mediaDateArray[0]
@@ -112,7 +137,6 @@ class SearchFragment : Fragment() {
                     }
                     val mediaDay = mediaDateArray[1].toInt()
                     val mediaDate = LocalDate.of(mediaYear, mediaMonth.toInt(), mediaDay)
-                    println(date.toString() + mediaDate.toString() + nextdate.toString())
                     if ( mediaDate in date..nextdate) {
                         validMedia.add(media)
                     }

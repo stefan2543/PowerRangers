@@ -75,13 +75,13 @@ class TodayFragment : Fragment() {
             override fun onSwipeRight() {
                 findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())            }
             override fun onSwipeLeft() {
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))            }
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0, ""))            }
 
 
         })
 
         calendarButton.setOnClickListener { findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
-        searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))}
+        searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0, ""))}
         return binding.root
     }
 

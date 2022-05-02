@@ -12,30 +12,27 @@
         <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/agatp/College/Senior/Spring 2022/Mobile Computing/Assignments/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.1" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/drawable/back.xml" value="0.1" />
-        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout-v21/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/calendar_fragment.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/details_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/details_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_login.xml" value="0.1265625" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_search_list.xml" value="0.1" />
-        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.1" />
+        <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_today.xml" value="0.1265625" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.1" />
         <entry key="..\:/Users/rvark/Downloads/PowerRangers/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2045" />
+        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout-v21/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/calendar_fragment.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/details_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_filter.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_search.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_search_list.xml" value="0.2" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/layout/fragment_today_list.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/scrut/AndroidStudioProjects/PowerRangers/app/src/main/res/menu/menu.xml" value="0.3625" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.1" />
-      </ProjectState>
-    </option>
-  </component>
 </project>

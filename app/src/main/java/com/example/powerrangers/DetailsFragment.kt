@@ -51,7 +51,7 @@ class DetailsFragment : Fragment() {
 
         binding.frameLayout.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
-                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0))            }
+                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0,""))            }
 
 
         })
@@ -59,7 +59,7 @@ class DetailsFragment : Fragment() {
 
         searchButton.setOnClickListener{
             //media.favorite = true
-            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0))}
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0,""))}
         return binding.root
     }
 
