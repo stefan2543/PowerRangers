@@ -9,15 +9,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.example.powerrangers.data.Media
-
-import com.example.powerrangers.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.powerrangers.databinding.FragmentSearchBinding
 import kotlinx.android.synthetic.main.fragment_today.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- *
- */
+
 class MyItemRecyclerViewAdapter2(
     private val clickListener: (Media) -> Unit
 ) : ListAdapter<Media, MyItemRecyclerViewAdapter2.MediaViewHolder>(DiffCallback) {

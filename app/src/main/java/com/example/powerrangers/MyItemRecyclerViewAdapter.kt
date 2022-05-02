@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.example.powerrangers.data.Media
 import com.example.powerrangers.databinding.FragmentSearchBinding
 
-import com.example.powerrangers.placeholder.PlaceholderContent.PlaceholderItem
 import com.example.powerrangers.databinding.FragmentTodayBinding
 import kotlinx.android.synthetic.main.fragment_today.view.*
 
