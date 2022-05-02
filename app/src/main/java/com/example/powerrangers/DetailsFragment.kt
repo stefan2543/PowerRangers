@@ -4,6 +4,7 @@ import OnSwipeTouchListener
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,9 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val searchButton = binding.searchButton
+
+        binding.description.movementMethod = ScrollingMovementMethod()
+
 
         binding.frameLayout.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
