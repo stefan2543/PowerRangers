@@ -1,13 +1,11 @@
 package com.example.powerrangers.viewmodel
 
-import android.content.ClipData
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.*
 import com.example.powerrangers.data.Media
-import com.example.powerrangers.data.MediaDao
 import com.example.powerrangers.data.MediaRepository
 import kotlinx.coroutines.launch
 

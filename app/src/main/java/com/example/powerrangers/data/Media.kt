@@ -3,7 +3,6 @@ package com.example.powerrangers.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 /**
  * A basic class representing an entity that is a row in a one-column database table.

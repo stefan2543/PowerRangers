@@ -1,15 +1,15 @@
 package com.example.powerrangers.data
 
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.*
-import javax.xml.parsers.DocumentBuilderFactory
-import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import java.io.*
-import java.nio.channels.AsynchronousFileChannel.open
+import java.time.LocalDate
 
 
 @Database(entities = [Media::class], version = 1)
@@ -79,7 +79,11 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 while (line != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    val media = Media(0, values[0], values[1], "Theaters", false, values[2], values[3])
+                    var description = ""
+                    for (i in 3 until values.size){
+                        description += values[i]
+                    }
+                    val media = Media(0, values[0], values[1], "Theaters", false, values[2], description)
                     mediaDao.insert(media)
                     line = br.readLine()
                 }
@@ -90,7 +94,11 @@ abstract class MediaRoomDatabase : RoomDatabase() {
                 while (line != null) {
                     val values: Array<String> =
                         line.split(",").toTypedArray()
-                    val media = Media(0, values[0], values[1], values[2], false, values[3], values[4])
+                    var description = ""
+                    for (i in 4 until values.size){
+                        description += values[i]
+                    }
+                    val media = Media(0, values[0], values[1], values[2], false, values[3], description)
                     mediaDao.insert(media)
                     line = br.readLine()
                 }

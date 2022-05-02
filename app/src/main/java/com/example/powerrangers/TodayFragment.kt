@@ -2,12 +2,14 @@ package com.example.powerrangers
 
 import OnSwipeTouchListener
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -23,6 +25,7 @@ import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
 import kotlinx.android.synthetic.main.fragment_search_list.*
 import kotlinx.android.synthetic.main.fragment_today.view.*
+import java.time.LocalDate
 
 /**
  * A fragment representing a list of Items.
@@ -82,6 +85,7 @@ class TodayFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -101,8 +105,20 @@ class TodayFragment : Fragment() {
                     validMedia.add(media)
                 }
             }
-            adapter.submitList(validMedia.sortedBy { it.date })
-        }
+            adapter.submitList(validMedia.sortedBy { val mediaDateArray = it.date.split("/").toTypedArray()
+                val mediaYear = mediaDateArray[2].toInt() + 2000
+                var mediaMonth = mediaDateArray[0]
+                if (mediaMonth[0].toString() == " ") {
+                    var correctedMonth = ""
+                    for (i in 1 until mediaMonth.length){
+                        correctedMonth += mediaMonth[i].toString()
+                    }
+                    mediaMonth = correctedMonth
+                }
+                val mediaDay = mediaDateArray[1].toInt()
+                LocalDate.of(mediaYear, mediaMonth.toInt(), mediaDay)
+            })}
+
         binding.apply {
             list.adapter = adapter
 
