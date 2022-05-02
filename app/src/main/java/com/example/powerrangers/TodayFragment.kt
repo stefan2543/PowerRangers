@@ -2,35 +2,22 @@ package com.example.powerrangers
 
 import OnSwipeTouchListener
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Button
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
 import com.example.powerrangers.data.Media
-import com.example.powerrangers.databinding.FragmentSearchListBinding
-import com.example.powerrangers.databinding.FragmentTodayBinding
 import com.example.powerrangers.databinding.FragmentTodayListBinding
-import com.example.powerrangers.placeholder.PlaceholderContent
 import com.example.powerrangers.viewmodel.MediaViewModel
 import com.example.powerrangers.viewmodel.MediaViewModelFactory
-import kotlinx.android.synthetic.main.fragment_search_list.*
-import kotlinx.android.synthetic.main.fragment_today.view.*
 import java.time.LocalDate
-import kotlin.properties.Delegates
 
 /**
  * A fragment representing a list of Items.
