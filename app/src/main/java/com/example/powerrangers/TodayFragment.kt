@@ -54,7 +54,6 @@ class TodayFragment : Fragment() {
         _binding = FragmentTodayListBinding.inflate(inflater, container, false)
 
         // Buttons
-        val nextDayButton = binding.nextDayButton
         val calendarButton = binding.calendarButton
         val searchButton = binding.searchButton
 
@@ -69,8 +68,15 @@ class TodayFragment : Fragment() {
             }
         }*/
 
+        binding.Layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())            }
+            override fun onSwipeLeft() {
+                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))            }
 
-        nextDayButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentSelf()) }
+
+        })
+
         calendarButton.setOnClickListener { findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
         searchButton.setOnClickListener{ findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0))}
         return binding.root

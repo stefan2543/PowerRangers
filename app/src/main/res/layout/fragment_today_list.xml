@@ -24,16 +24,20 @@
         android:layout_height="0dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="32dp"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/calendarButton"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@id/calendarButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        app:layout_constraintVertical_bias="0.0"
         tools:context=".TodayFragment"
         tools:listitem="@layout/fragment_today">
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
 
     <Button
         android:id="@+id/calendarButton"
@@ -44,30 +48,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/searchButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list">
+        app:layout_constraintTop_toBottomOf="@id/list">
 
     </Button>
 
-    <Button
-        android:id="@+id/nextDayButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:text="Next Day"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/searchButton"
-        app:layout_constraintTop_toBottomOf="@+id/list">
-
-    </Button>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list"
-        app:layout_constraintEnd_toStartOf="@id/nextDayButton"
+        app:layout_constraintTop_toTopOf="@id/calendarButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/calendarButton"
         android:text="Search">
 

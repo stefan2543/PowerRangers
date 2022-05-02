@@ -1,5 +1,7 @@
 package com.example.powerrangers
 
+import OnSwipeTouchListener
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,11 +43,18 @@ class SearchFragment : Fragment() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSearchListBinding.inflate(inflater, container, false)
+
+        binding.constraint.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToTodayFragment())           }
+
+        })
 
         //Buttons
         val todayButton = binding.todayButton
