@@ -2,23 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/my_nav"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/todayFragment">
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.powerrangers.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_todayFragment"
-            app:destination="@id/todayFragment" />
-    </fragment>
     <fragment
         android:id="@+id/todayFragment"
         android:name="com.example.powerrangers.TodayFragment"
         android:label="fragment_today_list"
-        tools:layout="@layout/fragment_today_list" >
+        tools:layout="@layout/fragment_today_list">
         <action
             android:id="@+id/action_todayFragment_self"
             app:destination="@id/todayFragment" />
@@ -36,7 +26,7 @@
         android:id="@+id/calendarFragment"
         android:name="com.example.powerrangers.CalendarFragment"
         android:label="calendar_fragment"
-        tools:layout="@layout/calendar_fragment" >
+        tools:layout="@layout/calendar_fragment">
         <action
             android:id="@+id/action_calendarFragment_to_todayFragment"
             app:destination="@id/todayFragment" />
@@ -48,16 +38,16 @@
         android:id="@+id/searchFragment"
         android:name="com.example.powerrangers.SearchFragment"
         android:label="fragment_search_list"
-        tools:layout="@layout/fragment_search_list" >
+        tools:layout="@layout/fragment_search_list">
         <action
             android:id="@+id/action_searchFragment_to_todayFragment"
             app:destination="@id/todayFragment" />
         <action
             android:id="@+id/action_searchFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" >
+            app:destination="@id/detailsFragment">
             <argument
                 android:name="id"
-                app:argType="long"/>
+                app:argType="long" />
         </action>
         <argument
             android:name="month"
@@ -79,7 +69,7 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.powerrangers.DetailsFragment"
         android:label="details_fragment"
-        tools:layout="@layout/details_fragment" >
+        tools:layout="@layout/details_fragment">
         <action
             android:id="@+id/action_detailsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -94,7 +84,7 @@
         android:id="@+id/filterFragment"
         android:name="com.example.powerrangers.FilterFragment"
         android:label="fragment_filter"
-        tools:layout="@layout/fragment_filter" >
+        tools:layout="@layout/fragment_filter">
         <action
             android:id="@+id/action_filterFragment_to_searchFragment"
             app:destination="@id/searchFragment" />

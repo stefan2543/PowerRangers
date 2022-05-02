@@ -64,7 +64,7 @@ class SearchFragment : Fragment() {
 
         //Buttons
         val todayButton = binding.todayButton
-        val filterButton = binding.filterButton
+        val filterButton = binding.advancedSearch
         //importCSV()
         todayButton.setOnClickListener{findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToTodayFragment())}
         filterButton.setOnClickListener{findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFilterFragment())}
@@ -183,10 +183,10 @@ class SearchFragment : Fragment() {
 
     companion object {
 
-        // TODO: Customize parameter argument names
+
         const val ARG_COLUMN_COUNT = "column-count"
 
-        // TODO: Customize parameter initialization
+
         @JvmStatic
         fun newInstance(columnCount: Int) =
             SearchFragment().apply {

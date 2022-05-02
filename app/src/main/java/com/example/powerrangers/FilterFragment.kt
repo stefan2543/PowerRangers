@@ -55,7 +55,7 @@ class FilterFragment : Fragment() {
         val backButton = binding.backButton
 
 
-        binding.layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
+        binding.constraint.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
                 findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSearchFragment(0, 0, 0,""))            }
 

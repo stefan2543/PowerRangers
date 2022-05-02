@@ -68,14 +68,15 @@ class DetailsFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Details"
 
         val id = navigationArgs.id
-        // TODO: Observe a forageable that is retrieved by id, set the forageable variable,
-        //  and call the bind forageable method
+
 
         viewModel.getMedia(id).observe(this.viewLifecycleOwner) { Media ->
             val addButton = binding.addButton
             media = Media
-            if(media.favorite) {binding.addButton.text = "Remove from Watchlist"}
-            else {binding.addButton.text = "Add to Watchlist" }
+            if(media.favorite) {binding.addButton.text = getString(R.string.remove)
+            }
+            else {binding.addButton.text = getString(R.string.add)
+            }
             addButton.setOnClickListener{
                 val newMedia: Media
                 if(media.favorite) {newMedia = media.copy(favorite = false)}
@@ -98,7 +99,7 @@ class DetailsFragment : Fragment() {
                 Glide.with(it)
                     .load(media.image)
                     .into(binding.morbImg)
-            };
+            }
         }
     }
 

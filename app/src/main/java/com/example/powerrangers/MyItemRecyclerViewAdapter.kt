@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_today.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
+ *
  */
 class MyItemRecyclerViewAdapter(
     private val clickListener: (Media) -> Unit
@@ -64,7 +64,7 @@ class MyItemRecyclerViewAdapter(
             Glide.with(it)
                 .load(media.image)
                 .into(holder.itemView.morb_img)
-        };
+        }
 
 
         holder.itemView.setOnClickListener{

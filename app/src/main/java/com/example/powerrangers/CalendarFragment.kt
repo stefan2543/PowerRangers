@@ -64,7 +64,7 @@ class CalendarFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Calendar"
         viewModel = ViewModelProvider(this).get(CalendarViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
 
 }

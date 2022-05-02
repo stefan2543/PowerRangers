@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraint"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/constraint">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -45,7 +45,7 @@
         android:id="@+id/Network"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TV Shows and Movies"
+        android:text="@string/tv_shows_and_movies"
         android:textAllCaps="true"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -95,17 +95,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:text="Today"
->
+        android:text="@string/today"
+        style="?android:attr/buttonBarButtonStyle">
 
     </Button>
 
     <Button
-        android:id="@+id/filterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Advanced Search"
->
+        android:text="@string/advanced_search"
+        android:id="@+id/advanced_search"
+        style="?android:attr/buttonBarButtonStyle">
 
     </Button>
     </LinearLayout>

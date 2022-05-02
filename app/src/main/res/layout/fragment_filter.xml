@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/layout"
     android:layout_height="match_parent"
-    tools:context=".FilterFragment">
+    tools:context=".FilterFragment"
+    android:id="@+id/constraint">
 
     <TextView
         android:id="@+id/Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="@string/search"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/search_text"
@@ -28,7 +28,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Search"
-    >
+        android:importantForAutofill="no"
+        android:hint="@string/advanced_search"
+        android:inputType="text">
 
     </EditText>
 
@@ -38,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintBottom_toTopOf="@id/Filters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Filters"
+        android:text="@string/filters"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/BothLayout"
@@ -70,7 +72,6 @@
         app:layout_constraintTop_toBottomOf="@id/Filters">
 
     <LinearLayout
-        android:id="@+id/LLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -78,32 +79,31 @@
 >
 
         <Button
-            android:id="@+id/theatersButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Theaters" />
+            android:text="@string/theaters"
+            android:id="@+id/theatersButton"/>
 
         <Button
-            android:id="@+id/appleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Apple TV+" />
+            android:text="@string/apple_tv"
+            android:id="@+id/appleButton"/>
 
         <Button
-            android:id="@+id/hboButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HBO" />
+            android:text="@string/hbo"
+            android:id="@+id/hboButton"/>
 
         <Button
-            android:id="@+id/huluButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hulu" />
+            android:text="@string/hulu"
+            android:id="@+id/huluButton"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/RinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -111,28 +111,28 @@
 >
 
         <Button
-            android:id="@+id/netflixButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Netflix" />
+            android:text="@string/netflix"
+            android:id="@+id/netflixButton"/>
 
         <Button
-            android:id="@+id/pbsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PBS" />
+            android:text="@string/pbs"
+            android:id="@+id/pbsButton"/>
 
         <Button
-            android:id="@+id/showtimeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Showtime" />
+            android:text="@string/showtime"
+            android:id="@+id/showtimeButton"/>
 
         <Button
-            android:id="@+id/paramountButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paramount+" />
+            android:text="@string/paramount"
+            android:id="@+id/paramountButton"/>
     </LinearLayout>
     </LinearLayout>
 
@@ -141,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Back to Search"
+        android:text="@string/back_to_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

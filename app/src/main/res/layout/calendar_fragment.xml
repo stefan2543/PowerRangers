@@ -22,7 +22,7 @@
         android:id="@+id/todayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today"
+        android:text="@string/today"
         app:layout_constraintEnd_toEndOf="@id/date_Picker"
         app:layout_constraintTop_toTopOf="@id/date_Picker">
 
@@ -32,7 +32,7 @@
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintEnd_toEndOf="@id/date_Picker"
         app:layout_constraintTop_toBottomOf="@id/todayButton">
 

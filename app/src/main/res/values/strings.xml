@@ -1,12 +1,27 @@
 <resources>
     <string name="app_name">Movie Tracker</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="today">Today</string>
+    <string name="search">Search</string>
+    <string name="return_to_search">Return to Search</string>
+    <string name="check">check</string>
+    <string name="filters">Filters</string>
+    <string name="theaters">Theaters</string>
+    <string name="apple_tv">Apple TV+</string>
+    <string name="hbo">HBO</string>
+    <string name="hulu">Hulu</string>
+    <string name="netflix">Netflix</string>
+    <string name="pbs">PBS</string>
+    <string name="showtime">Showtime</string>
+    <string name="paramount">Paramount+</string>
+    <string name="back_to_search">Back to Search</string>
+    <string name="tv_shows_and_movies">TV Shows and Movies</string>
+    <string name="advanced_search">Advanced Search</string>
+    <string name="calendar_view">Calendar View</string>
+    <string name="media_image">Media Image</string>
+    <string name="remove">Remove from Watchlist</string>
+    <string name="add">Add to Watchlist</string>
 </resources>

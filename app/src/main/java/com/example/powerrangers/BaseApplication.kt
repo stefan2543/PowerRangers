@@ -9,7 +9,6 @@ import kotlinx.coroutines.SupervisorJob
 
 class BaseApplication : Application() {
 
-    // TODO: provide a ForageDatabase value by lazy here
     val applicationScope = CoroutineScope(SupervisorJob())
     val database: MediaRoomDatabase by lazy { MediaRoomDatabase.getDatabase(this, applicationScope) }
     val repository by lazy { MediaRepository(database.mediaDao())}
