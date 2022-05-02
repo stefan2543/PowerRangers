@@ -204,6 +204,7 @@ class SearchFragment : Fragment() {
             }
     }
 
+    //Code taken from: https://www.techiedelight.com/find-similarities-between-two-strings-in-kotlin/
     private fun getLevenshteinDistance(X: String, Y: String): Int {
         val m = X.length
         val n = Y.length
