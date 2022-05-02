@@ -64,8 +64,11 @@ class SearchFragment : Fragment() {
 
         //Buttons
         val todayButton = binding.todayButton
+        val filterButton = binding.filterButton
         //importCSV()
         todayButton.setOnClickListener{findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToTodayFragment())}
+        filterButton.setOnClickListener{findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFilterFragment())}
+
         return binding.root
     }
 

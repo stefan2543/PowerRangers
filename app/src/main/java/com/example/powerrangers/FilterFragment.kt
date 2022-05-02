@@ -52,15 +52,18 @@ class FilterFragment : Fragment() {
         val showtimeButton = binding.showtimeButton
         val paramountButton = binding.paramountButton
         val searchButton = binding.search
+        val backButton = binding.backButton
+
 
         binding.layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
-            override fun onSwipeLeft() {
+            override fun onSwipeRight() {
                 findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSearchFragment(0, 0, 0,""))            }
 
 
         })
 
 
+        backButton.setOnClickListener{findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSearchFragment(0, 0, 0,""))}
         theaterButton.setOnClickListener{
             findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSearchFragment(0, 0, 0,"Theaters"))}
         appleButton.setOnClickListener{
