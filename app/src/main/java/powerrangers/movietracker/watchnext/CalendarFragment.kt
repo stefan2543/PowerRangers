@@ -1,4 +1,4 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import OnSwipeTouchListener
 import androidx.lifecycle.ViewModelProvider
@@ -9,10 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.movietracker.watchnext.R
 import java.util.*
 
 class CalendarFragment : Fragment() {
@@ -32,7 +32,13 @@ class CalendarFragment : Fragment() {
         val todayButton = view.findViewById<Button>(R.id.todayButton)
         val searchButton = view.findViewById<Button>(R.id.searchButton)
         todayButton.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_calendarFragment_to_todayFragment)}
-        searchButton.setOnClickListener{val action = CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(0, 0, 0,"")
+        searchButton.setOnClickListener{val action =
+            powerrangers.movietracker.watchnext.CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(
+                0,
+                0,
+                0,
+                ""
+            )
             findNavController().navigate(action)}
 
         container?.setOnTouchListener(object : OnSwipeTouchListener(context) {
@@ -53,7 +59,13 @@ class CalendarFragment : Fragment() {
             val month = month + 1
            // val msg = "You Selected: $day/$month/$year"
            // Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-            val action = CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(month, year, day,"")
+            val action =
+                powerrangers.movietracker.watchnext.CalendarFragmentDirections.actionCalendarFragmentToSearchFragment(
+                    month,
+                    year,
+                    day,
+                    ""
+                )
             findNavController().navigate(action)
         }
 

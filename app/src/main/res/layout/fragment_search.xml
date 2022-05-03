@@ -4,7 +4,7 @@
     <data>
         <variable
             name="media"
-            type="com.example.powerrangers.data.Media" />
+            type="powerrangers.movietracker.watchnext.data.Media" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

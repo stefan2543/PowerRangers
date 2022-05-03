@@ -1,4 +1,4 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import OnSwipeTouchListener
 import android.annotation.SuppressLint
@@ -13,12 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
-import com.example.powerrangers.data.Media
-import com.example.powerrangers.databinding.FragmentSearchListBinding
-import com.example.powerrangers.viewmodel.MediaViewModel
-import com.example.powerrangers.viewmodel.MediaViewModelFactory
-import kotlinx.android.synthetic.main.fragment_search.*
+import powerrangers.movietracker.watchnext.data.Media
+import com.movietracker.watchnext.databinding.FragmentSearchListBinding
+import powerrangers.movietracker.watchnext.viewmodel.MediaViewModel
+import powerrangers.movietracker.watchnext.viewmodel.MediaViewModelFactory
 import java.time.LocalDate
 import java.time.Period
 import kotlin.math.max
@@ -30,7 +28,7 @@ import kotlin.math.min
 class SearchFragment : Fragment() {
 
     private var columnCount = 1
-    private val navigationArgs: SearchFragmentArgs by navArgs()
+    private val navigationArgs: powerrangers.movietracker.watchnext.SearchFragmentArgs by navArgs()
     private val viewModel: MediaViewModel by activityViewModels {
         MediaViewModelFactory(
             (activity?.application as BaseApplication).repository
@@ -58,9 +56,9 @@ class SearchFragment : Fragment() {
 
         binding.constraint.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
-                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToTodayFragment())           }
+                findNavController().navigate(powerrangers.movietracker.watchnext.SearchFragmentDirections.actionSearchFragmentToTodayFragment())           }
             override fun onSwipeLeft() {
-                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFilterFragment())           }
+                findNavController().navigate(powerrangers.movietracker.watchnext.SearchFragmentDirections.actionSearchFragmentToFilterFragment())           }
 
         })
 
@@ -68,8 +66,8 @@ class SearchFragment : Fragment() {
         val todayButton = binding.todayButton
         val filterButton = binding.advancedSearch
         //importCSV()
-        todayButton.setOnClickListener{findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToTodayFragment())}
-        filterButton.setOnClickListener{findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFilterFragment())}
+        todayButton.setOnClickListener{findNavController().navigate(powerrangers.movietracker.watchnext.SearchFragmentDirections.actionSearchFragmentToTodayFragment())}
+        filterButton.setOnClickListener{findNavController().navigate(powerrangers.movietracker.watchnext.SearchFragmentDirections.actionSearchFragmentToFilterFragment())}
 
         return binding.root
     }
@@ -91,7 +89,7 @@ class SearchFragment : Fragment() {
 
 
         val adapter = MyItemRecyclerViewAdapter2 { media ->
-            val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(media.id)
+            val action = powerrangers.movietracker.watchnext.SearchFragmentDirections.actionSearchFragmentToDetailsFragment(media.id)
             findNavController().navigate(action)
         }
 

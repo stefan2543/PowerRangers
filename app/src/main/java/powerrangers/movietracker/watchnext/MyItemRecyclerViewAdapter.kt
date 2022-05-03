@@ -1,29 +1,32 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.powerrangers.data.Media
-import com.example.powerrangers.databinding.FragmentSearchBinding
+import powerrangers.movietracker.watchnext.data.Media
+import com.movietracker.watchnext.databinding.FragmentTodayBinding
 import kotlinx.android.synthetic.main.fragment_today.view.*
 
-
-class MyItemRecyclerViewAdapter2(
+/**
+ * [RecyclerView.Adapter] that can display a [PlaceholderItem].
+ *
+ */
+class MyItemRecyclerViewAdapter(
     private val clickListener: (Media) -> Unit
-) : ListAdapter<Media, MyItemRecyclerViewAdapter2.MediaViewHolder>(DiffCallback) {
+) : ListAdapter<Media, MyItemRecyclerViewAdapter.MediaViewHolder>(DiffCallback) {
 
     class MediaViewHolder(
-        private var binding: FragmentSearchBinding
+        private var binding: FragmentTodayBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(media: Media) {
             binding.media = media
             binding.executePendingBindings()
+
+
         }
     }
 
@@ -43,7 +46,7 @@ class MyItemRecyclerViewAdapter2(
         val layoutInflater = LayoutInflater.from(parent.context)
 
         return MediaViewHolder(
-            FragmentSearchBinding.inflate(layoutInflater, parent, false)
+            FragmentTodayBinding.inflate(layoutInflater, parent, false)
         )
 
     }
@@ -57,21 +60,13 @@ class MyItemRecyclerViewAdapter2(
                 .into(holder.itemView.morb_img)
         }
 
+
         holder.itemView.setOnClickListener{
             clickListener(media)
         }
-        holder.bind(media)
+        if (media.favorite){
+        holder.bind(media)}
     }
 
-    //override fun getItemCount(): Int = values.size
-
-//    inner class ViewHolder(binding: FragmentSearchBinding) : RecyclerView.ViewHolder(binding.root) {
-//        //val idView: TextView = binding.itemNumber
-//        val contentView: TextView = binding.Title
-//
-//        override fun toString(): String {
-//            return super.toString() + " '" + contentView.text + "'"
-//        }
-//    }
 
 }

@@ -1,4 +1,4 @@
-package com.example.powerrangers.data
+package powerrangers.movietracker.watchnext.data
 
 /**
  * A generic class that holds a value with its loading status.

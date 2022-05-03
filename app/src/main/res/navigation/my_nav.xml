@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/todayFragment"
-        android:name="com.example.powerrangers.TodayFragment"
+        android:name="powerrangers.movietracker.watchnext.TodayFragment"
         android:label="fragment_today_list"
         tools:layout="@layout/fragment_today_list">
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.powerrangers.CalendarFragment"
+        android:name="powerrangers.movietracker.watchnext.CalendarFragment"
         android:label="calendar_fragment"
         tools:layout="@layout/calendar_fragment">
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.powerrangers.SearchFragment"
+        android:name="powerrangers.movietracker.watchnext.SearchFragment"
         android:label="fragment_search_list"
         tools:layout="@layout/fragment_search_list">
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.powerrangers.DetailsFragment"
+        android:name="powerrangers.movietracker.watchnext.DetailsFragment"
         android:label="details_fragment"
         tools:layout="@layout/details_fragment">
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.powerrangers.FilterFragment"
+        android:name="powerrangers.movietracker.watchnext.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter">
         <action

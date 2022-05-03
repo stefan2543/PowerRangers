@@ -1,4 +1,4 @@
-package com.example.powerrangers.data
+package powerrangers.movietracker.watchnext.data
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow

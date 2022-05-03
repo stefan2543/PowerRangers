@@ -1,19 +1,19 @@
-package com.example.powerrangers.viewmodel
+package powerrangers.movietracker.watchnext.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.*
-import com.example.powerrangers.data.Media
-import com.example.powerrangers.data.MediaRepository
+import powerrangers.movietracker.watchnext.data.Media
+import powerrangers.movietracker.watchnext.data.MediaRepository
 import kotlinx.coroutines.launch
 
 class MediaViewModel(
     // Pass dao here
     private val repository: MediaRepository,
 
-): ViewModel() {
+    ): ViewModel() {
 
     val allMedia: LiveData<List<Media>> = repository.allMedia.asLiveData()
 

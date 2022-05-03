@@ -1,15 +1,12 @@
-package com.example.powerrangers.data
+package powerrangers.movietracker.watchnext.data
 
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.*
 import java.io.*
-import java.time.LocalDate
 
 
 @Database(entities = [Media::class], version = 1)

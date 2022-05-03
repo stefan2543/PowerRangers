@@ -8,7 +8,7 @@
 <data>
     <variable
         name="media"
-        type="com.example.powerrangers.data.Media" />
+        type="powerrangers.movietracker.watchnext.data.Media" />
 </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frameLayout"
@@ -16,7 +16,7 @@
     android:layout_height="match_parent"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
-    tools:context=".DetailsFragment">
+    tools:context="powerrangers.movietracker.watchnext.DetailsFragment">
 
     <Button
         android:id="@+id/addButton"

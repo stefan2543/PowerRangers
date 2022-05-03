@@ -1,30 +1,27 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import OnSwipeTouchListener
 import android.annotation.SuppressLint
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.example.powerrangers.data.Media
-import com.example.powerrangers.databinding.DetailsFragmentBinding
-import com.example.powerrangers.viewmodel.MediaViewModel
-import com.example.powerrangers.viewmodel.MediaViewModelFactory
-import kotlinx.android.synthetic.main.fragment_search.*
+import com.movietracker.watchnext.R
+import powerrangers.movietracker.watchnext.data.Media
+import com.movietracker.watchnext.databinding.DetailsFragmentBinding
+import powerrangers.movietracker.watchnext.viewmodel.MediaViewModel
+import powerrangers.movietracker.watchnext.viewmodel.MediaViewModelFactory
 
 class DetailsFragment : Fragment() {
 
-    private val navigationArgs: DetailsFragmentArgs by navArgs()
+    private val navigationArgs: powerrangers.movietracker.watchnext.DetailsFragmentArgs by navArgs()
 
     private val viewModel: MediaViewModel by activityViewModels {
         MediaViewModelFactory(
@@ -51,7 +48,14 @@ class DetailsFragment : Fragment() {
 
         binding.frameLayout.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
-                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0,""))            }
+                findNavController().navigate(
+                    powerrangers.movietracker.watchnext.DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(
+                        0,
+                        0,
+                        0,
+                        ""
+                    )
+                )            }
 
 
         })
@@ -59,7 +63,14 @@ class DetailsFragment : Fragment() {
 
         searchButton.setOnClickListener{
             //media.favorite = true
-            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(0, 0, 0,""))}
+            findNavController().navigate(
+                powerrangers.movietracker.watchnext.DetailsFragmentDirections.actionDetailsFragmentToSearchFragment(
+                    0,
+                    0,
+                    0,
+                    ""
+                )
+            )}
         return binding.root
     }
 
@@ -82,7 +93,7 @@ class DetailsFragment : Fragment() {
                 if(media.favorite) {newMedia = media.copy(favorite = false)}
                 else { newMedia = media.copy(favorite = true)}
                 viewModel.updateMedia(newMedia)
-                findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
+                findNavController().navigate(powerrangers.movietracker.watchnext.DetailsFragmentDirections.actionDetailsFragmentToTodayFragment())}
             bindMedia(media)
         }
 

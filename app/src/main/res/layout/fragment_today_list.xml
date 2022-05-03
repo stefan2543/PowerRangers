@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_toolbar"
-        tools:context=".TodayFragment"
+        tools:context="powerrangers.movietracker.watchnext.TodayFragment"
         tools:listitem="@layout/fragment_today">
 
 

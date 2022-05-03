@@ -1,4 +1,4 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

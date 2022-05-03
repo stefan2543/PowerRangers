@@ -1,10 +1,8 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.SearchView
+import com.movietracker.watchnext.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

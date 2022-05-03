@@ -1,4 +1,4 @@
-package com.example.powerrangers.data
+package powerrangers.movietracker.watchnext.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

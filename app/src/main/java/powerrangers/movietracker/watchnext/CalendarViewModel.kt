@@ -1,4 +1,4 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import androidx.lifecycle.ViewModel
 

@@ -1,4 +1,4 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import org.junit.Test
 

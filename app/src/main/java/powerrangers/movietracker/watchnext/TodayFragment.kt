@@ -1,4 +1,4 @@
-package com.example.powerrangers
+package powerrangers.movietracker.watchnext
 
 import OnSwipeTouchListener
 import android.annotation.SuppressLint
@@ -13,10 +13,10 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.powerrangers.data.Media
-import com.example.powerrangers.databinding.FragmentTodayListBinding
-import com.example.powerrangers.viewmodel.MediaViewModel
-import com.example.powerrangers.viewmodel.MediaViewModelFactory
+import powerrangers.movietracker.watchnext.data.Media
+import com.movietracker.watchnext.databinding.FragmentTodayListBinding
+import powerrangers.movietracker.watchnext.viewmodel.MediaViewModel
+import powerrangers.movietracker.watchnext.viewmodel.MediaViewModelFactory
 import java.time.LocalDate
 
 /**
@@ -71,18 +71,32 @@ class TodayFragment : Fragment() {
         binding.constraint.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
                 if (empty) {                toast.cancel()}
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())            }
+                findNavController().navigate(powerrangers.movietracker.watchnext.TodayFragmentDirections.actionTodayFragmentToCalendarFragment())            }
             override fun onSwipeLeft() {
                 if (empty) {                toast.cancel()}
-                findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0, ""))            }
+                findNavController().navigate(
+                    powerrangers.movietracker.watchnext.TodayFragmentDirections.actionTodayFragmentToSearchFragment(
+                        0,
+                        0,
+                        0,
+                        ""
+                    )
+                )            }
 
 
         })
 
         calendarButton.setOnClickListener { if (empty) {                toast.cancel()}
-            findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
+            findNavController().navigate(powerrangers.movietracker.watchnext.TodayFragmentDirections.actionTodayFragmentToCalendarFragment())}
         searchButton.setOnClickListener{ if (empty) {                toast.cancel()}
-            findNavController().navigate(TodayFragmentDirections.actionTodayFragmentToSearchFragment(0,0,0, ""))}
+            findNavController().navigate(
+                powerrangers.movietracker.watchnext.TodayFragmentDirections.actionTodayFragmentToSearchFragment(
+                    0,
+                    0,
+                    0,
+                    ""
+                )
+            )}
         return binding.root
     }
 
@@ -94,7 +108,7 @@ class TodayFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Your Watchlist"
 
         val adapter = MyItemRecyclerViewAdapter { media ->
-            val action = TodayFragmentDirections.actionTodayFragmentToDetailsFragment(media.id)
+            val action = powerrangers.movietracker.watchnext.TodayFragmentDirections.actionTodayFragmentToDetailsFragment(media.id)
             findNavController().navigate(action)
         }
 
