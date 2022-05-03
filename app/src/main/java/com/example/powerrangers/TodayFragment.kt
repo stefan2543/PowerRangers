@@ -115,7 +115,7 @@ class TodayFragment : Fragment() {
 
             Handler(Looper.getMainLooper()).postDelayed({
                 if (empty) {
-                    val text = "You have no media in your watchlist :( \nSwipe right to explore movies and TV shows!"
+                    val text = "You have no media in your watchlist :( \nSwipe left to explore movies and TV shows!"
                     val duration = Toast.LENGTH_LONG
                     toast = Toast.makeText(context, text, duration)
                     toast.setGravity(Gravity.NO_GRAVITY, 0, -800)

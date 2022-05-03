@@ -7,17 +7,16 @@
     tools:context=".FilterFragment"
     android:id="@+id/constraint">
 
-    <TextView
-        android:id="@+id/Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/search"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/search_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="lollipop"/>
 
     <EditText
         android:id="@+id/search_text"
@@ -27,7 +26,7 @@
         app:layout_constraintBottom_toTopOf="@+id/Filters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Search"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
         android:importantForAutofill="no"
         android:hint="@string/advanced_search"
         android:inputType="text">

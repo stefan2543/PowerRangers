@@ -23,8 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/today"
-        app:layout_constraintEnd_toEndOf="@id/date_Picker"
-        app:layout_constraintTop_toTopOf="@id/date_Picker">
+        app:layout_constraintStart_toEndOf="@id/searchButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_Picker">
 
     </Button>
 
@@ -33,8 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
-        app:layout_constraintEnd_toEndOf="@id/date_Picker"
-        app:layout_constraintTop_toBottomOf="@id/todayButton">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/todayButton"
+        app:layout_constraintTop_toBottomOf="@id/date_Picker">
 
     </Button>
 

@@ -91,7 +91,7 @@ class FilterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "Search and Filter"
+        (activity as AppCompatActivity).supportActionBar?.title = "Advanced Search"
 
 
     }
